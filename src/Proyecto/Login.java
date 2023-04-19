@@ -1,4 +1,4 @@
-package ProyectoTercerTrimestre;
+package Proyecto;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -13,7 +13,7 @@ public class Login extends JFrame {
         setSize(690, 600);
         setTitle("\uD834\uDD1E Green Devil MusicStore \uD834\uDD1E");
         setLocationRelativeTo(null); // Establece la ventana en el centro de la pantalla
-        Image iconImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("Green-Devil-988x1024.png"));
+        Image iconImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("Imagenes/Green-Devil-988x1024.png"));
         setIconImage(iconImage);
         iniciarComponentes();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,7 +33,7 @@ public class Login extends JFrame {
 
         // IMÁGEN LOGO
 
-        URL urllogo = Graficos.Login_GreenDevil.class.getResource("Green-Devil-988x1024.png");
+        URL urllogo = Proyecto.Login.class.getResource("Imagenes/Green-Devil-988x1024.png");
         ImageIcon image = new ImageIcon(urllogo);
         Icon icon = new ImageIcon(image.getImage().getScaledInstance(260, 270, Image.SCALE_SMOOTH));
 
@@ -75,8 +75,6 @@ public class Login extends JFrame {
         registerButton.setBounds(560, 520, 100, 25);
 
         // AÑADIMOS BOTONES Y CAMPOS DE TEXTO AL PANEL
-
-
 
         panel.add(nombreUsuario);
         panel.add(contraseña);

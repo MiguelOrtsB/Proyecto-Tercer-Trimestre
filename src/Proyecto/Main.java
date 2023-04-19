@@ -1,4 +1,4 @@
-package ProyectoTercerTrimestre;
+package Proyecto;
 
 public class Main {
 
