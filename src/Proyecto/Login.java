@@ -109,6 +109,7 @@ public class Login extends JFrame {
         panel.add(registerButton);
 
         // EVENTO ACTIONLISTENER (UNA VEZ INICIADO SESIÓN ACCEDEMOS A LA VENTANA PRINCIPAL DE LA WEB)
+
         ActionListener oyenteDeAccion = new ActionListener() { //Agregando evento de tipo ActionListener
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -136,8 +137,5 @@ public class Login extends JFrame {
             }
         };
         loginButton.addActionListener(oyenteDeAccion); //Le agreamos al botón de Iniciar Sesión el evento ActionListener
-
     }
-
-
 }
