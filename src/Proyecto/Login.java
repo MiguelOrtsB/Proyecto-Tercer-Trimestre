@@ -30,6 +30,7 @@ public class Login extends JFrame {
         iniciarComponentes(); // Llamamos al método que agrega el JPanel y todos los demás widgets
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Establecemos que el programa se detenga al cerrar la ventana
     }
+
     private void iniciarComponentes(){ //Método para iniciar y agregar el Panel y todos sus componentes en el Frame
 
         colocarPanel();
@@ -53,6 +54,7 @@ public class Login extends JFrame {
         Border border = BorderFactory.createLineBorder(Color.green, 4); //Diseñamos el borde del Panel (color y grosor)
         panel.setBorder(border); //Añadimos el borde al Panel
     }
+
     private void colocarLabels(){
 
         // IMÁGEN LOGO
@@ -75,6 +77,7 @@ public class Login extends JFrame {
         label2.setBounds(160, 20, 400, 40);
         panel.add(label2);
     }
+
     private void colocarCamposTexto(){
 
         // CAMPOS DE TEXTO PARA INICIAR SESIÓN (USUARIO Y CONTRASEÑA)
