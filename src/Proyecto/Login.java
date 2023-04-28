@@ -143,13 +143,13 @@ public class Login extends JFrame {
         loginButton.addActionListener(oyenteDeAccion); //Le agreamos al botón de Iniciar Sesión el evento ActionListener
 
         // EVENTO ACTIONLISTENER (UNA VEZ EN LA PANTALLA DE LOGIN ACCEDEMOS A LA VENTANA PARA REGISTRARSE)
+
         ActionListener accederRegister = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 Register registro = new Register();
                 registro.setVisible(true);
-
             }
         };
         registerButton.addActionListener(accederRegister);
