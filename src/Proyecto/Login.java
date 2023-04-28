@@ -10,6 +10,7 @@ import java.net.URL;
 public class Login extends JFrame {
 
     // INICIALIZAMOS TODAS LAS CLASES
+
     private JPanel panel;
     private JLabel label;
     private JLabel label2;
@@ -130,7 +131,7 @@ public class Login extends JFrame {
                         mensaje=true;            }
                 }
                 if(mensaje){
-                    setVisible(false); // Para que se cierre la pestaña anterior de Login una vez accedamos a la principal
+                    setVisible(false); //Para que se cierre la pestaña anterior de Login una vez accedamos a la principal
                     Principal principal = new Principal();
                     principal.setVisible(true);
 
@@ -150,7 +151,7 @@ public class Login extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                setVisible(false); // Para cerrarr la ventana de Login una vez hagamos click en el botón de Registro
+                setVisible(false); //Para cerrar la ventana de Login una vez hagamos click en el botón de Registro
                 Register registro = new Register();
                 registro.setVisible(true);
             }

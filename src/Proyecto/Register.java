@@ -13,6 +13,7 @@ import java.awt.geom.RoundRectangle2D;
 public class Register extends JFrame {
 
     // INICIALIZAMOS TODAS LAS CLASES
+
     private JPanel panel;
     private JLabel label;
     private JLabel label2;
@@ -166,13 +167,13 @@ public class Register extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                JOptionPane.showMessageDialog(null, "¡Gracias por registrarte!"); // Mensaje agracedimiento
-                Login login = new Login(); // Creamos la clase de Login para que nos muestre la ventana de la misma
-                setVisible(false); // Cerramos la ventana de registro para que no visualizen las dos simultáneamente
-                login.setVisible(true); // Y abrimos nuevamente la ventana de Login una vez que el usuario se haya registrado
+                JOptionPane.showMessageDialog(null, "¡Gracias por registrarte!"); //Mensaje agracedimiento
+                Login login = new Login(); //Creamos la clase de Login para que nos muestre la ventana de la misma
+                setVisible(false); //Cerramos la ventana de registro para que no visualizen las dos simultáneamente
+                login.setVisible(true); //Y abrimos nuevamente la ventana de Login una vez que el usuario se haya registrado
             }
         };
-        registerButton.addActionListener(registrado); // Una vez que el usuario haga click en el botón se activará el ActionListener
+        registerButton.addActionListener(registrado); //Una vez que el usuario haga click en el botón se activará el ActionListener
 
     }
     public class RoundJTextField extends JTextField {
@@ -182,7 +183,7 @@ public class Register extends JFrame {
 
         public RoundJTextField(int size) {
             super(size);
-            setOpaque(false); // As suggested by @AVD in comment.
+            setOpaque(false); //As suggested by @AVD in comment.
         }
 
         protected void paintComponent(Graphics g) {
