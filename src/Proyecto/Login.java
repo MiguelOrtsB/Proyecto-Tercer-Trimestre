@@ -130,8 +130,10 @@ public class Login extends JFrame {
                         mensaje=true;            }
                 }
                 if(mensaje){
+                    setVisible(false); // Para que se cierre la pestaña anterior de Login una vez accedamos a la principal
                     Principal principal = new Principal();
                     principal.setVisible(true);
+
 
                 }else {
                     JOptionPane.showMessageDialog(null, "Usario o contraseña incorrectos");
@@ -148,6 +150,7 @@ public class Login extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                setVisible(false); // Para cerrarr la ventana de Login una vez hagamos click en el botón de Registro
                 Register registro = new Register();
                 registro.setVisible(true);
             }
