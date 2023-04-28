@@ -162,6 +162,18 @@ public class Register extends JFrame {
         //registerButton.setBorder(BorderFactory.);
         panel.add(registerButton);
 
+        ActionListener registrado = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                JOptionPane.showMessageDialog(null, "¡Gracias por registrarte!"); // Mensaje agracedimiento
+                Login login = new Login(); // Creamos la clase de Login para que nos muestre la ventana de la misma
+                setVisible(false); // Cerramos la ventana de registro para que no visualizen las dos simultáneamente
+                login.setVisible(true); // Y abrimos nuevamente la ventana de Login una vez que el usuario se haya registrado
+            }
+        };
+        registerButton.addActionListener(registrado); // Una vez que el usuario haga click en el botón se activará el ActionListener
+
     }
     public class RoundJTextField extends JTextField {
 
@@ -191,8 +203,6 @@ public class Register extends JFrame {
             return shape.contains(x, y);
         }
     }
-    public static void main(String[] args) {
-        Register registro = new Register();
-    }
+
 
 }

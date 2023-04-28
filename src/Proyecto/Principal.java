@@ -35,7 +35,7 @@ public class Principal extends JFrame {
 
         JLabel imagenLogo = new JLabel();
         imagenLogo.setIcon(icono);
-        imagenLogo.setBounds(593, 5, 300, 140);
+        imagenLogo.setBounds(595, 5, 300, 140);
         panelPrincipal.add(imagenLogo);
 
         setVisible(true);
