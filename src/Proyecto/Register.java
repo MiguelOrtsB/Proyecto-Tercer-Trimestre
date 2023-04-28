@@ -16,6 +16,10 @@ public class Register extends JFrame {
     private JPanel panel;
     private JLabel label;
     private JLabel label2;
+
+    private JLabel label3;
+    private JLabel label4;
+    private JLabel label5;
     private JTextField nombreUsuario;
     private JTextField correo;
     private JPasswordField contraseña;
@@ -28,11 +32,12 @@ public class Register extends JFrame {
 
         // FRAME
 
-        setSize(690, 600); // Tamaño de la ventana (Frame)
+        setSize(690, 700); // Tamaño de la ventana (Frame)
         setTitle("\uD834\uDD1E Green Devil MusicStore \uD834\uDD1E"); // Título del Frame
         setLocationRelativeTo(null); // Establece la ventana en el centro de la pantalla
         Image iconImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("Imagenes/Green-Devil-988x1024.png"));
         setIconImage(iconImage); // Establecemos el icono de la ventana
+        setResizable(false); // Para que el usuario no pueda maximizar la pantalla y se quede en el tamaño establecido
         iniciarComponentes(); // Llamamos al método que agrega el JPanel y todos los demás widgets
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Establecemos que el programa se detenga al cerrar la ventana
     }
@@ -81,8 +86,29 @@ public class Register extends JFrame {
         label2.setText("Únete a Green Devil"); //Creamos el texto
         label2.setForeground(new Color(0x00FF00)); //Le añadimos un color al texto
         label2.setFont(new Font("Eras Bold ITC", Font.PLAIN,26)); //Le asignamos la fuente y el tamaño de la letra al texto
-        label2.setBounds(170, 40, 400, 40);
+        label2.setBounds(170, 35, 400, 40);
         panel.add(label2);
+
+        label3 = new JLabel();
+        label3.setText("Nombre de usuario:");
+        label3.setForeground(new Color(0x00FF00)); //Le añadimos un color al texto
+        label3.setFont(new Font("Calibri", Font.PLAIN,16));
+        label3.setBounds(170, 95, 400, 40);
+        panel.add(label3);
+
+        label4 = new JLabel();
+        label4.setText("Correo electrónico:");
+        label4.setForeground(new Color(0x00FF00)); //Le añadimos un color al texto
+        label4.setFont(new Font("Calibri", Font.PLAIN,16));
+        label4.setBounds(170, 205, 400, 40);
+        panel.add(label4);
+
+        label5 = new JLabel();
+        label5.setText("Contraseña:");
+        label5.setForeground(new Color(0x00FF00)); //Le añadimos un color al texto
+        label5.setFont(new Font("Calibri", Font.PLAIN,16));
+        label5.setBounds(170, 315, 400, 40);
+        panel.add(label5);
     }
 
     private void colocarCamposTexto(){
@@ -90,21 +116,21 @@ public class Register extends JFrame {
         // CAMPOS DE TEXTO PARA INICIAR SESIÓN (USUARIO Y CONTRASEÑA)
 
         nombreUsuario = new RoundJTextField(15); //Campo de texto para el nombre de usuario
-        nombreUsuario.setBounds(170, 110, 340, 60);
+        nombreUsuario.setBounds(170, 130, 340, 60);
         nombreUsuario.setForeground(new Color(0x049B04));
         nombreUsuario.setHorizontalAlignment(JTextField.CENTER); //Alineamos el texto en el centro del campo de texto
         nombreUsuario.setBorder(BorderFactory.createLineBorder(new Color(0x049B04), 3));
         panel.add(nombreUsuario);
 
         correo = new RoundJTextField(15); //Campo de texto para el nombre de usuario
-        correo.setBounds(170, 200, 340, 60);
+        correo.setBounds(170, 240, 340, 60);
         correo.setForeground(new Color(0x049B04));
         correo.setHorizontalAlignment(JTextField.CENTER); //Alineamos el texto en el centro del campo de texto
         correo.setBorder(BorderFactory.createLineBorder(new Color(0x049B04), 3));
         panel.add(correo);
 
         contraseña = new JPasswordField("Contraseña..."); //Campo de texto para la contraseña
-        contraseña.setBounds(170, 290, 340, 60);
+        contraseña.setBounds(170, 350, 340, 60);
         contraseña.setForeground(new Color(0x049B04));
         contraseña.setHorizontalAlignment(JTextField.CENTER); //Alineamos el texto en el centro del campo de texto
         contraseña.setBorder(BorderFactory.createLineBorder(new Color(0x049B04), 3)); //Color bordes del campo de texto
@@ -114,13 +140,13 @@ public class Register extends JFrame {
     private void colocarCheckBox(){
 
         checkBox = new JCheckBox("Quiero recibir comunicaciones sobre promociones\n y novedades de Green Devil");
-        checkBox.setBounds(170,360,500,50);
+        checkBox.setBounds(170,420,500,50);
         checkBox.setForeground(new Color(0x049B04));
         checkBox.setBackground(Color.BLACK);
         panel.add(checkBox);
 
         checkBox2 = new JCheckBox("Acepto las condiciones de uso y de privacidad de Green Devil");
-        checkBox2.setBounds(170,400,500,50);
+        checkBox2.setBounds(170,460,500,50);
         checkBox2.setForeground(new Color(0x049B04));
         checkBox2.setBackground(Color.BLACK);
         panel.add(checkBox2);
@@ -132,7 +158,7 @@ public class Register extends JFrame {
 
         registerButton = new JButton("Registrarse"); //Botón de Registro
         registerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        registerButton.setBounds(270, 470, 150, 40);
+        registerButton.setBounds(270, 520, 150, 40);
         //registerButton.setBorder(BorderFactory.);
         panel.add(registerButton);
 

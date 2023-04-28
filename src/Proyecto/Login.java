@@ -26,6 +26,7 @@ public class Login extends JFrame {
         setTitle("\uD834\uDD1E Green Devil MusicStore \uD834\uDD1E"); // Título del Frame
         setLocationRelativeTo(null); // Establece la ventana en el centro de la pantalla
         Image iconImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("Imagenes/Green-Devil-988x1024.png"));
+        setResizable(false); // Para que el usuario no pueda maximizar la pantalla y se quede en el tamaño establecido
         setIconImage(iconImage); // Establecemos el icono de la ventana
         iniciarComponentes(); // Llamamos al método que agrega el JPanel y todos los demás widgets
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Establecemos que el programa se detenga al cerrar la ventana
@@ -140,5 +141,17 @@ public class Login extends JFrame {
             }
         };
         loginButton.addActionListener(oyenteDeAccion); //Le agreamos al botón de Iniciar Sesión el evento ActionListener
+
+        // EVENTO ACTIONLISTENER (UNA VEZ EN LA PANTALLA DE LOGIN ACCEDEMOS A LA VENTANA PARA REGISTRARSE)
+        ActionListener accederRegister = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Register registro = new Register();
+                registro.setVisible(true);
+
+            }
+        };
+        registerButton.addActionListener(accederRegister);
     }
 }
