@@ -228,25 +228,32 @@ public class Principal extends JFrame {
 
         // SUBOPCIONES DENTRO DE MENÚ
 
-        JMenu menu2 = new JMenu("Guitarras"); //Este menu2 irá dentro del menu1, y se activará al hacer click en menu1
+        JMenu menu2 = new JMenu("Instrumentos"); //Este menu2 irá dentro del menu1, y se activará al hacer click en menu1
         menu2.setFont(new Font("Cinzel", Font.PLAIN,20));
         menu2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         menu1.add(menu2);
 
-        JMenu menu3 = new JMenu("Bajos");
-        menu3.setFont(new Font("Cinzel", Font.PLAIN,20));
-        menu3.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        menu1.add(menu3);
+        // RESULTADOS PARA LA OPCIÓN DE "INSTRUMENTOS"
 
-        JMenu menu5 = new JMenu("Pedales");
-        menu5.setFont(new Font("Cinzel", Font.PLAIN,20));
-        menu5.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        menu1.add(menu5);
+        JMenuItem menuguitarras = new JMenuItem("Guitarras");
+        menuguitarras.setFont(new Font("Cinzel", Font.PLAIN,20));
+        menuguitarras.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        menu2.add(menuguitarras);
 
-        JMenu menu4 = new JMenu("Amplificadores");
-        menu4.setFont(new Font("Cinzel", Font.PLAIN,20));
-        menu4.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        menu1.add(menu4);
+        JMenuItem menubajos = new JMenuItem("Bajos");
+        menubajos.setFont(new Font("Cinzel", Font.PLAIN,20));
+        menubajos.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        menu2.add(menubajos);
+
+        JMenuItem menupedales = new JMenuItem("Pedales");
+        menupedales.setFont(new Font("Cinzel", Font.PLAIN,20));
+        menupedales.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        menu2.add(menupedales);
+
+        JMenuItem menuamplificadores = new JMenuItem("Amplificadores");
+        menuamplificadores.setFont(new Font("Cinzel", Font.PLAIN,20));
+        menuamplificadores.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        menu2.add(menuamplificadores);
 
         // SUBOPCIONES DENTRO DE CONTACTO
 
@@ -278,9 +285,21 @@ public class Principal extends JFrame {
         JMenuItem direccion = new JMenuItem("C/ Barón de Pinopar nº19");
         telf.setFont(new Font("Cinzel", Font.PLAIN,20));
         menu8.add(direccion);
+
+        // MÉTODO ACTIONLISTENER (PARA ABRIR LA VENTADA DE "GUITARRAS" UNA VEZ SELECCIONEMOS ESA OPCIÓN EN EL MENÚ)
+        ActionListener accederRegister = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                setVisible(false); //Para cerrar la ventana de Principal una vez hagamos click en el botón de Guitarras
+                Guitarras guitarras = new Guitarras();
+                guitarras.setVisible(true);
+            }
+        };
+        menuguitarras.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "guitarras"
     }
 
-    // EVENTOS DE RATÓN (CUANDO PASAMOS CON EL RATÓN POR ENCIMA DEL MENÚ CAMBIA DE COLOR)
+    // EVENTOS DE RATÓN (CUANDO PASAMOS CON EL RATÓN POR ENCIMA DEL MENÚ BAR CAMBIA DE COLOR)
 
     private final MouseListener mouseAction = new MouseAdapter(){
 
