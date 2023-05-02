@@ -46,4 +46,9 @@ public class Guitarras extends JFrame{
         music.setForeground(new Color(0x049B04));
         panelGuitarras.add(music);
     }
+
+    public static void main(String[] args) {
+        Guitarras guitarras = new Guitarras();
+    }
+
 }
