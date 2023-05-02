@@ -16,7 +16,7 @@ public class Principal extends JFrame {
 
     public Principal(){
 
-        setExtendedState(MAXIMIZED_BOTH);
+        setExtendedState(MAXIMIZED_BOTH); //La ventana ocupa todoo el ancho de la pantalla
         setTitle("\uD834\uDD1E Green Devil MusicStore \uD834\uDD1E"); // Título del Frame
         Image iconImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("Imagenes/Green-Devil-988x1024.png"));
         setIconImage(iconImage); // Establecemos el icono de la ventana
@@ -287,6 +287,7 @@ public class Principal extends JFrame {
         menu8.add(direccion);
 
         // MÉTODO ACTIONLISTENER (PARA ABRIR LA VENTADA DE "GUITARRAS" UNA VEZ SELECCIONEMOS ESA OPCIÓN EN EL MENÚ)
+
         ActionListener accederRegister = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
