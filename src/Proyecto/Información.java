@@ -114,11 +114,11 @@ public class Información extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                setVisible(false); //Para cerrar la ventana de Guitarras una vez hagamos click en el botón de "Atrás"
+                setVisible(false); //Para cerrar la ventana de Información una vez hagamos click en el botón de "Atrás"
                 new Principal().setVisible(true);
             }
         };
-        back.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "guitarras"
+        back.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "¿Quiénes somos?"
     }
 
     class FondoPanel extends JPanel{
@@ -134,6 +134,5 @@ public class Información extends JFrame {
 
     public static void main(String[] args) {
         Información info = new Información();
-
     }
 }

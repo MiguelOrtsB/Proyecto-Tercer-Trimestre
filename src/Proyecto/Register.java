@@ -204,6 +204,4 @@ public class Register extends JFrame {
             return shape.contains(x, y);
         }
     }
-
-
 }

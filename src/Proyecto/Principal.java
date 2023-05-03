@@ -322,7 +322,7 @@ public class Principal extends JFrame {
                 info.setVisible(true);
             }
         };
-        whowho.addActionListener(accederInfo); //Añadimos el método ActionListener a la subopción de "guitarras"
+        whowho.addActionListener(accederInfo); //Añadimos el método ActionListener a la subopción de "¿Quiénes somos?"
     }
 
     // EVENTOS DE RATÓN (CUANDO PASAMOS CON EL RATÓN POR ENCIMA DEL MENÚ BAR CAMBIA DE COLOR)
