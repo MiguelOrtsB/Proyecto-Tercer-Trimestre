@@ -112,7 +112,7 @@ public class Principal extends JFrame {
 
         JLabel imagenLogo = new JLabel();
         imagenLogo.setIcon(icono);
-        imagenLogo.setBounds(477, 5, 300, 140);
+        imagenLogo.setBounds(477, 8, 300, 130);
         panelPrincipal.add(imagenLogo);
 
         JLabel imagenLogo2 = new JLabel();
@@ -201,7 +201,7 @@ public class Principal extends JFrame {
         navbar = new JMenuBar(); //Creación de la barra del menú
         navbar.setOpaque(true); //La hacemos opaca para aplicarle color de fondo y que así se pueda visualizar
         navbar.setBackground(Color.BLACK); //Le aplicamos color de fondo
-        navbar.setBounds(4, 145, 1518, 50); //Tamaño y posición del MenuBar
+        navbar.setBounds(4, 142, 1258, 50); //Tamaño y posición del MenuBar
         panelPrincipal.add(navbar); //La añadimos al PANEL
 
         // OPCIONES DEL MENU BAR (MENÚ, CONTACTO, INFO)
