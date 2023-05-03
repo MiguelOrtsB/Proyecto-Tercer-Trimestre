@@ -204,6 +204,67 @@ public class Guitarras extends JFrame{
         btn7.setBounds(115, 648, 85, 20);
         panelGuitarras.add(btn7);
 
+        // GUITARRA 8 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
+
+        URL urlGuitarra8 = Proyecto.Login.class.getResource("Imagenes/esp-ltd-george-lynch-gl-200mt-yellow-tiger-electric-guitar-sku-number-lgl200mt.png");
+        ImageIcon imagenGuitarra8 = new ImageIcon(urlGuitarra8);
+        Icon iconGuitarra8 = new ImageIcon(imagenGuitarra8.getImage().getScaledInstance(80, 210, Image.SCALE_SMOOTH));
+        JLabel guitarra8 = new JLabel();
+        guitarra8.setIcon(iconGuitarra8);
+        guitarra8.setBounds(566, 370, 170, 300);
+        panelGuitarras.add(guitarra8);
+        JLabel guit8 = new JLabel("ESP LTD GL-200MT");
+        guit8.setBounds(552, 610, 300, 50);
+        panelGuitarras.add(guit8);
+        JLabel prec8 = new JLabel("749€");
+        prec8.setBounds(540, 631, 50, 50);
+        prec8.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
+        panelGuitarras.add(prec8);
+        JButton btn8 = new JButton("Comprar");
+        btn8.setBounds(595, 648, 85, 20);
+        panelGuitarras.add(btn8);
+
+        // GUITARRA 9 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
+
+        URL urlGuitarra9 = Proyecto.Login.class.getResource("Imagenes/fender-malibu-player-arctic-gold.jpg");
+        ImageIcon imagenGuitarra9 = new ImageIcon(urlGuitarra9);
+        Icon iconGuitarra9 = new ImageIcon(imagenGuitarra9.getImage().getScaledInstance(210, 200, Image.SCALE_SMOOTH));
+        JLabel guitarra9 = new JLabel();
+        guitarra9.setIcon(iconGuitarra9);
+        guitarra9.setBounds(760, 370, 170, 300);
+        panelGuitarras.add(guitarra9);
+        JLabel guit9 = new JLabel("Fender Malibu Acoustic");
+        guit9.setBounds(800, 610, 300, 50);
+        panelGuitarras.add(guit9);
+        JLabel prec9 = new JLabel("310€");
+        prec9.setBounds(798, 631, 50, 50);
+        prec9.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
+        panelGuitarras.add(prec9);
+        JButton btn9 = new JButton("Comprar");
+        btn9.setBounds(850, 648, 85, 20);
+        panelGuitarras.add(btn9);
+
+        // GUITARRA 10 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
+
+        URL urlGuitarra10 = Proyecto.Login.class.getResource("Imagenes/gh200_2w4w-34.png");
+        ImageIcon imagenGuitarra10 = new ImageIcon(urlGuitarra10);
+        Icon iconGuitarra10 = new ImageIcon(imagenGuitarra10.getImage().getScaledInstance(80, 205, Image.SCALE_SMOOTH));
+        JLabel guitarra10 = new JLabel();
+        guitarra10.setIcon(iconGuitarra10);
+        guitarra10.setBounds(1083, 370, 170, 300);
+        panelGuitarras.add(guitarra10);
+        JLabel guit10 = new JLabel("ESP LTD GH-200 BLK");
+        guit10.setBounds(1065, 610, 300, 50);
+        panelGuitarras.add(guit10);
+        JLabel prec10 = new JLabel("749€");
+        prec10.setBounds(1060, 631, 50, 50);
+        prec10.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
+        panelGuitarras.add(prec10);
+        JButton btn10 = new JButton("Comprar");
+        btn10.setBounds(1115, 648, 85, 20);
+        panelGuitarras.add(btn10);
+
+
         // TEXTO / TÍTULO DE LA VENTANA
 
         JLabel music = new JLabel("GUITARRAS");
@@ -220,7 +281,7 @@ public class Guitarras extends JFrame{
 
     private void colocarBotonesGuitarras(){
 
-        atras = new JButton("↶ Atrás");
+        atras = new JButton("↶Atrás");
         atras.setFont(new Font("Dialog", Font.PLAIN, 18));
         atras.setAlignmentX(Component.CENTER_ALIGNMENT);
         atras.setBounds(1130, 45, 100, 35);
@@ -235,11 +296,9 @@ public class Guitarras extends JFrame{
             }
         };
         atras.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "guitarras"
-
     }
 
     public static void main(String[] args) {
         Guitarras guitarras = new Guitarras();
     }
-
 }

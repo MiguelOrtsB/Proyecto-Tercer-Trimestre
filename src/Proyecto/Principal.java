@@ -13,7 +13,6 @@ public class Principal extends JFrame {
     private JMenu menu1;
     private JMenu menu11;
     private JMenu menu12;
-    private Dimension dim;
 
     public Principal(){
 
@@ -329,6 +328,4 @@ public class Principal extends JFrame {
     public static void main(String[] args) {
         Principal principal = new Principal();
     }
-
-
 }
