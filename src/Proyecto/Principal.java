@@ -127,7 +127,7 @@ public class Principal extends JFrame {
 
         JLabel imagenLogo4 = new JLabel();
         imagenLogo4.setIcon(icono4);
-        imagenLogo4.setBounds(748, 230, 300, 150);
+        imagenLogo4.setBounds(758, 230, 300, 150);
         panelPrincipal.add(imagenLogo4);
 
         JLabel imagenLogo5 = new JLabel();
@@ -324,8 +324,4 @@ public class Principal extends JFrame {
             menu1.setSelected(false);
         };
     };
-
-    public static void main(String[] args) {
-        Principal principal = new Principal();
-    }
 }

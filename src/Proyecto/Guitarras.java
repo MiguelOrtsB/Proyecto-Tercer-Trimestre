@@ -82,6 +82,7 @@ public class Guitarras extends JFrame{
         panelGuitarras.add(prec1);
         JButton btn1 = new JButton("Comprar");
         btn1.setBounds(115, 380, 85, 20);
+        btn1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn1);
 
         // GUITARRA 2 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
@@ -91,17 +92,18 @@ public class Guitarras extends JFrame{
         Icon iconGuitarra2 = new ImageIcon(imagenGuitarra2.getImage().getScaledInstance(75, 215, Image.SCALE_SMOOTH));
         JLabel guitarra2 = new JLabel();
         guitarra2.setIcon(iconGuitarra2);
-        guitarra2.setBounds(320, 92, 150, 300);
+        guitarra2.setBounds(338, 92, 150, 300);
         panelGuitarras.add(guitarra2);
         JLabel guit2 = new JLabel("Jackson SL3X DX");
-        guit2.setBounds(310, 339, 300, 50);
+        guit2.setBounds(327, 339, 300, 50);
         panelGuitarras.add(guit2);
         JLabel prec2 = new JLabel("719€");
-        prec2.setBounds(300, 363, 50, 50);
+        prec2.setBounds(313, 363, 50, 50);
         prec2.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec2);
         JButton btn2 = new JButton("Comprar");
-        btn2.setBounds(350, 380, 85, 20);
+        btn2.setBounds(363, 380, 85, 20);
+        btn2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn2);
 
         // GUITARRA 3 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
@@ -111,17 +113,18 @@ public class Guitarras extends JFrame{
         Icon iconGuitarra3 = new ImageIcon(imagenGuitarra3.getImage().getScaledInstance(165, 215, Image.SCALE_SMOOTH));
         JLabel guitarra3 = new JLabel();
         guitarra3.setIcon(iconGuitarra3);
-        guitarra3.setBounds(520, 94, 170, 300);
+        guitarra3.setBounds(545, 94, 170, 300);
         panelGuitarras.add(guitarra3);
         JLabel guit3 = new JLabel("Fender Telecaster Custom 60");
-        guit3.setBounds(523, 338, 300, 50);
+        guit3.setBounds(545, 338, 300, 50);
         panelGuitarras.add(guit3);
         JLabel prec3 = new JLabel("2599€");
-        prec3.setBounds(535, 363, 50, 50);
+        prec3.setBounds(555, 363, 50, 50);
         prec3.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec3);
         JButton btn3 = new JButton("Comprar");
-        btn3.setBounds(595, 380, 85, 20);
+        btn3.setBounds(615, 380, 85, 20);
+        btn3.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn3);
 
         // GUITARRA 4 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
@@ -131,17 +134,18 @@ public class Guitarras extends JFrame{
         Icon iconGuitarra4 = new ImageIcon(imagenGuitarra4.getImage().getScaledInstance(162, 212, Image.SCALE_SMOOTH));
         JLabel guitarra4 = new JLabel();
         guitarra4.setIcon(iconGuitarra4);
-        guitarra4.setBounds(780, 95, 170, 300);
+        guitarra4.setBounds(802, 95, 170, 300);
         panelGuitarras.add(guitarra4);
         JLabel guit4 = new JLabel("EVH Striped Series");
-        guit4.setBounds(810, 338, 300, 50);
+        guit4.setBounds(832, 338, 300, 50);
         panelGuitarras.add(guit4);
         JLabel prec4 = new JLabel("1359€");
-        prec4.setBounds(790, 363, 50, 50);
+        prec4.setBounds(812, 363, 50, 50);
         prec4.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec4);
         JButton btn4 = new JButton("Comprar");
-        btn4.setBounds(850, 380, 85, 20);
+        btn4.setBounds(872, 380, 85, 20);
+        btn4.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn4);
 
         // GUITARRA 5 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
@@ -151,17 +155,18 @@ public class Guitarras extends JFrame{
         Icon iconGuitarra5 = new ImageIcon(imagenGuitarra5.getImage().getScaledInstance(95, 230, Image.SCALE_SMOOTH));
         JLabel guitarra5 = new JLabel();
         guitarra5.setIcon(iconGuitarra5);
-        guitarra5.setBounds(1073, 95, 170, 300);
+        guitarra5.setBounds(1080, 95, 170, 300);
         panelGuitarras.add(guitarra5);
         JLabel guit5 = new JLabel("Ibanez XPTB720");
-        guit5.setBounds(1078, 338, 300, 50);
+        guit5.setBounds(1085, 338, 300, 50);
         panelGuitarras.add(guit5);
         JLabel prec5 = new JLabel("1299€");
-        prec5.setBounds(1055, 363, 50, 50);
+        prec5.setBounds(1060, 363, 50, 50);
         prec5.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec5);
         JButton btn5 = new JButton("Comprar");
-        btn5.setBounds(1115, 380, 85, 20);
+        btn5.setBounds(1121, 380, 85, 20);
+        btn5.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn5);
 
         // GUITARRA 6 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
@@ -171,7 +176,7 @@ public class Guitarras extends JFrame{
         Icon iconGuitarra6 = new ImageIcon(imagenGuitarra6.getImage().getScaledInstance(85, 210, Image.SCALE_SMOOTH));
         JLabel guitarra6 = new JLabel();
         guitarra6.setIcon(iconGuitarra6);
-        guitarra6.setBounds(77, 370, 170, 300);
+        guitarra6.setBounds(80, 370, 170, 300);
         panelGuitarras.add(guitarra6);
         JLabel guit6 = new JLabel("Gibson Explorer Antique Natural");
         guit6.setBounds(35, 610, 300, 50);
@@ -181,7 +186,8 @@ public class Guitarras extends JFrame{
         prec6.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec6);
         JButton btn6 = new JButton("Comprar");
-        btn6.setBounds(350, 648, 85, 20);
+        btn6.setBounds(115, 648, 85, 20);
+        btn6.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn6);
 
         // GUITARRA 7 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
@@ -191,17 +197,18 @@ public class Guitarras extends JFrame{
         Icon iconGuitarra7 = new ImageIcon(imagenGuitarra7.getImage().getScaledInstance(95, 210, Image.SCALE_SMOOTH));
         JLabel guitarra7 = new JLabel();
         guitarra7.setIcon(iconGuitarra7);
-        guitarra7.setBounds(320, 370, 170, 300);
+        guitarra7.setBounds(335, 370, 170, 300);
         panelGuitarras.add(guitarra7);
         JLabel guit7 = new JLabel("Yamaha F325 Acoustic");
-        guit7.setBounds(300, 610, 300, 50);
+        guit7.setBounds(320, 610, 300, 50);
         panelGuitarras.add(guit7);
         JLabel prec7 = new JLabel("169€");
-        prec7.setBounds(300, 631, 50, 50);
+        prec7.setBounds(315, 631, 50, 50);
         prec7.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec7);
         JButton btn7 = new JButton("Comprar");
-        btn7.setBounds(115, 648, 85, 20);
+        btn7.setBounds(365, 648, 85, 20);
+        btn7.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn7);
 
         // GUITARRA 8 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
@@ -211,17 +218,18 @@ public class Guitarras extends JFrame{
         Icon iconGuitarra8 = new ImageIcon(imagenGuitarra8.getImage().getScaledInstance(80, 210, Image.SCALE_SMOOTH));
         JLabel guitarra8 = new JLabel();
         guitarra8.setIcon(iconGuitarra8);
-        guitarra8.setBounds(566, 370, 170, 300);
+        guitarra8.setBounds(591, 370, 170, 300);
         panelGuitarras.add(guitarra8);
         JLabel guit8 = new JLabel("ESP LTD GL-200MT");
-        guit8.setBounds(552, 610, 300, 50);
+        guit8.setBounds(577, 610, 300, 50);
         panelGuitarras.add(guit8);
         JLabel prec8 = new JLabel("749€");
-        prec8.setBounds(540, 631, 50, 50);
+        prec8.setBounds(563, 631, 50, 50);
         prec8.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec8);
         JButton btn8 = new JButton("Comprar");
-        btn8.setBounds(595, 648, 85, 20);
+        btn8.setBounds(616, 648, 85, 20);
+        btn8.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn8);
 
         // GUITARRA 9 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
@@ -231,17 +239,18 @@ public class Guitarras extends JFrame{
         Icon iconGuitarra9 = new ImageIcon(imagenGuitarra9.getImage().getScaledInstance(210, 200, Image.SCALE_SMOOTH));
         JLabel guitarra9 = new JLabel();
         guitarra9.setIcon(iconGuitarra9);
-        guitarra9.setBounds(760, 370, 170, 300);
+        guitarra9.setBounds(780, 370, 170, 300);
         panelGuitarras.add(guitarra9);
         JLabel guit9 = new JLabel("Fender Malibu Acoustic");
-        guit9.setBounds(800, 610, 300, 50);
+        guit9.setBounds(820, 610, 300, 50);
         panelGuitarras.add(guit9);
         JLabel prec9 = new JLabel("310€");
-        prec9.setBounds(798, 631, 50, 50);
+        prec9.setBounds(818, 631, 50, 50);
         prec9.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec9);
         JButton btn9 = new JButton("Comprar");
-        btn9.setBounds(850, 648, 85, 20);
+        btn9.setBounds(870, 648, 85, 20);
+        btn9.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn9);
 
         // GUITARRA 10 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
@@ -251,17 +260,18 @@ public class Guitarras extends JFrame{
         Icon iconGuitarra10 = new ImageIcon(imagenGuitarra10.getImage().getScaledInstance(80, 205, Image.SCALE_SMOOTH));
         JLabel guitarra10 = new JLabel();
         guitarra10.setIcon(iconGuitarra10);
-        guitarra10.setBounds(1083, 370, 170, 300);
+        guitarra10.setBounds(1095, 370, 170, 300);
         panelGuitarras.add(guitarra10);
         JLabel guit10 = new JLabel("ESP LTD GH-200 BLK");
-        guit10.setBounds(1065, 610, 300, 50);
+        guit10.setBounds(1071, 610, 300, 50);
         panelGuitarras.add(guit10);
         JLabel prec10 = new JLabel("749€");
-        prec10.setBounds(1060, 631, 50, 50);
+        prec10.setBounds(1068, 631, 50, 50);
         prec10.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec10);
         JButton btn10 = new JButton("Comprar");
-        btn10.setBounds(1115, 648, 85, 20);
+        btn10.setBounds(1121, 648, 85, 20);
+        btn10.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn10);
 
 
@@ -285,6 +295,7 @@ public class Guitarras extends JFrame{
         atras.setFont(new Font("Dialog", Font.PLAIN, 18));
         atras.setAlignmentX(Component.CENTER_ALIGNMENT);
         atras.setBounds(1130, 45, 100, 35);
+        atras.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(atras);
 
         ActionListener accederRegister = new ActionListener() {
@@ -296,9 +307,5 @@ public class Guitarras extends JFrame{
             }
         };
         atras.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "guitarras"
-    }
-
-    public static void main(String[] args) {
-        Guitarras guitarras = new Guitarras();
     }
 }
