@@ -31,7 +31,7 @@ public class Información extends JFrame {
 
         colocarPanelInfo();
         colocarLabelsInfo();
-        this.setVisible(true);
+        setVisible(true);
     }
 
     public void colocarPanelInfo(){
