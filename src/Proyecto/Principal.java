@@ -291,6 +291,13 @@ public class Principal extends JFrame {
         telf.setFont(new Font("Cinzel", Font.PLAIN,20));
         menu8.add(direccion);
 
+        // RESULTADOS PARA LA OPCIÓN DE "INFO"
+
+        JMenuItem whowho = new JMenuItem("¿Quiénes somos?");
+        whowho.setFont(new Font("Cinzel", Font.PLAIN,20));
+        whowho.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        menu12.add(whowho);
+
         // MÉTODO ACTIONLISTENER (PARA ABRIR LA VENTADA DE "GUITARRAS" UNA VEZ SELECCIONEMOS ESA OPCIÓN EN EL MENÚ)
 
         ActionListener accederRegister = new ActionListener() {
@@ -303,6 +310,19 @@ public class Principal extends JFrame {
             }
         };
         menuguitarras.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "guitarras"
+
+        // MÉTODO ACTIONLISTENER (PARA ABRIR LA VENTADA DE "¿QUIÉNES SOMOS?" UNA VEZ SELECCIONEMOS ESA OPCIÓN EN EL MENÚ)
+
+        ActionListener accederInfo = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                setVisible(false); //Para cerrar la ventana de Principal una vez hagamos click en el botón de ¿Quiénes somos?
+                Información info = new Información();
+                info.setVisible(true);
+            }
+        };
+        whowho.addActionListener(accederInfo); //Añadimos el método ActionListener a la subopción de "guitarras"
     }
 
     // EVENTOS DE RATÓN (CUANDO PASAMOS CON EL RATÓN POR ENCIMA DEL MENÚ BAR CAMBIA DE COLOR)
