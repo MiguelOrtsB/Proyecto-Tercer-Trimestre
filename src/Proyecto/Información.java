@@ -62,10 +62,10 @@ public class Información extends JFrame {
 
         URL urlLogoInfo = Proyecto.Principal.class.getResource("Imagenes/Green-Devil-988x1024.png");
         ImageIcon imagenInfo = new ImageIcon(urlLogoInfo);
-        Icon iconoInfo = new ImageIcon(imagenInfo.getImage().getScaledInstance(125, 125, Image.SCALE_SMOOTH));
+        Icon iconoInfo = new ImageIcon(imagenInfo.getImage().getScaledInstance(65, 65, Image.SCALE_SMOOTH));
         JLabel imagenLogoInfo = new JLabel();
         imagenLogoInfo.setIcon(iconoInfo);
-        imagenLogoInfo.setBounds(1130, 100, 300, 130);
+        imagenLogoInfo.setBounds(850, 555, 300, 130);
         getContentPane().add(imagenLogoInfo);
 
         JLabel texto = new JLabel();
@@ -77,9 +77,9 @@ public class Información extends JFrame {
                 "este hobby o simplemente adquirir un nuevo instrumento acorde a sus necesidades.<br>" +
                 "<br>" +
                 "Desde entonces, somos la tienda de confiaza para mucha gente, es por esta razón que<br>" +
-                "nos consideramos expertos principalmente en instrumentos de cuerda (guitarras <br>" +
-                "eléctricas, guitarras acústicas y bajos) así como todo tipo de complementos de éstos.<br>" +
-                "Todo esto enfocado a estilos clásicos como Blues o Rock, hasta estilos más pesados del<br>" +
+                "nos consideramos expertos principalmente en instrumentos de cuerda <strong><i>(guitarras <br>" +
+                "eléctricas, guitarras acústicas y bajos)</i></strong> así como todo tipo de complementos de éstos.<br>" +
+                "Todo ello enfocado a estilos clásicos como Blues o Rock, hasta estilos más pesados del<br>" +
                 "Heavy Metal.<br>" +
                 "<br>" +
                 "¡Esperamos verte pronto!<br>" +
@@ -131,7 +131,6 @@ public class Información extends JFrame {
             super.paint(g);
         }
     }
-
     public static void main(String[] args) {
         Información info = new Información();
     }
