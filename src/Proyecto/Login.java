@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.sql.SQLException;
 
 public class Login extends JFrame {
 
@@ -31,6 +32,17 @@ public class Login extends JFrame {
         setIconImage(iconImage); // Establecemos el icono de la ventana
         iniciarComponentes(); // Llamamos al método que agrega el JPanel y todos los demás widgets
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Establecemos que el programa se detenga al cerrar la ventana
+        testSQLConexion();
+    }
+
+    private void testSQLConexion() {
+        try {
+            Comprar comprar = new Comprar();
+            comprar.ComprarGuitarra();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void iniciarComponentes(){ //Método para iniciar y agregar el Panel y todos sus componentes en el Frame
