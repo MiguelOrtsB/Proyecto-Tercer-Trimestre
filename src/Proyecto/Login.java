@@ -6,6 +6,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.RowId;
 import java.sql.SQLException;
 
 public class Login extends JFrame {
@@ -32,18 +34,18 @@ public class Login extends JFrame {
         setIconImage(iconImage); // Establecemos el icono de la ventana
         iniciarComponentes(); // Llamamos al método que agrega el JPanel y todos los demás widgets
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Establecemos que el programa se detenga al cerrar la ventana
-        testSQLConexion();
+        //testSQLConexion(); //Prueba para comprobar si se conecta la BBDD
     }
 
+    /* Para comporbar si se conecta con la BBDD y cambia la disponibiliad a false de una guitarra en concreto (Ibanez)
     private void testSQLConexion() {
         try {
-            Comprar comprar = new Comprar();
-            comprar.ComprarGuitarra();
+            ConsultasBBDD querys = new ConsultasBBDD();
+            querys.ComprarGuitarra();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-    }
+    }*/
 
     private void iniciarComponentes(){ //Método para iniciar y agregar el Panel y todos sus componentes en el Frame
 
@@ -130,15 +132,26 @@ public class Login extends JFrame {
         ActionListener oyenteDeAccion = new ActionListener() { //Agregando evento de tipo ActionListener
             @Override
             public void actionPerformed(ActionEvent e) {
-                String [] Usuarios={"admin", "miguel"};
-                String [] Claves = new String[2];
-                Claves[0]="1234";
-                Claves[1]="12345";
 
-                String usuario = nombreUsuario.getText();
-                String password= contraseña.getText();
+                // VAMOS A COMPARAR SI LO INTRODUCIDO POR EL SUPUESTO USUARIO Y LA BBDD COINCIDEN (NOMBRE USUARIO Y CONTRASEÑA)
+
+                String usuarioInput = nombreUsuario.getText(); //Guardamos en una variable el nombre de usuario introducido en el Login
+                String passwordInput= contraseña.getText(); //Guardamos en una variable la contraseña introducida en el Login por el user
+                ConsultasBBDD obtenerUsuarioBaseDeDatos = new ConsultasBBDD(); //Instaciamos la clase donde tenemos todas las consultas
+                try {
+                    ResultSet usuarios = obtenerUsuarioBaseDeDatos.ObtenerUsuarioBBDD(); // Recupera los usuario de nuestra BBDD
+                    while (usuarios.next()) { //Recorre los usuarios que acabamos de recuperar
+                        String usuarioBBDD = usuarios.getString("Nombre_usuario"); //Recupera y asigna en una variable el ussername
+                        String passBBDD = usuarios.getString("contraseña"); //Recupera y asigna en una variable el password
+                        System.out.println(usuarioBBDD + "\t" + passBBDD);
+                    }
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
                 boolean mensaje = false;
-                for(int i = 0; i < Usuarios.length; i++){
+                /* for(int i = 0; i < Usuarios.length; i++){
                     if(Usuarios[i].equals(usuario)&&Claves[i].equals(password)){
                         mensaje=true;            }
                 }
@@ -152,7 +165,7 @@ public class Login extends JFrame {
                     JOptionPane.showMessageDialog(null, "Usario o contraseña incorrectos");
                     nombreUsuario.setText("");
                     contraseña.setText("");
-                }
+                }*/
             }
         };
         loginButton.addActionListener(oyenteDeAccion); //Le agreamos al botón de Iniciar Sesión el evento ActionListener

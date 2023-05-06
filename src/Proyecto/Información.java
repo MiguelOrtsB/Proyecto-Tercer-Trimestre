@@ -131,7 +131,4 @@ public class Información extends JFrame {
             super.paint(g);
         }
     }
-    public static void main(String[] args) {
-        Información info = new Información();
-    }
 }

@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.SQLException;
 
 public class Register extends JFrame {
 
@@ -166,6 +167,16 @@ public class Register extends JFrame {
         ActionListener registrado = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                try {
+                    ConsultasBBDD querys = new ConsultasBBDD(); //Instanciamos la clase de ConsultasBBDD
+                    String u = nombreUsuario.getText(); //Almacenamos en una variable el nombre de usuario introducido
+                    String c = correo.getText(); //Almacenamos en una variable el correo introducido
+                    String p = contraseña.getText(); //Almacenamos en una variable la contraseña introducido
+                    querys.RegistrarUsuario(u, c, p); //Llamamos al método para registrar usuario y le pasamos los parámetros anteriores
+                } catch (SQLException exception) {
+                    exception.printStackTrace(); //En caso de error muestra lo que ha ocurrido
+                }
 
                 JOptionPane.showMessageDialog(null, "¡Gracias por registrarte!"); //Mensaje agracedimiento
                 Login login = new Login(); //Creamos la clase de Login para que nos muestre la ventana de la misma
