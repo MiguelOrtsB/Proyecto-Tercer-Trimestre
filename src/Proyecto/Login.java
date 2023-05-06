@@ -140,12 +140,24 @@ public class Login extends JFrame {
                 String usuarioInput = nombreUsuario.getText(); //Guardamos en una variable el nombre de usuario introducido en el Login
                 String passwordInput= contraseña.getText(); //Guardamos en una variable la contraseña introducida en el Login por el user
                 ConsultasBBDD obtenerUsuarioBaseDeDatos = new ConsultasBBDD(); //Instaciamos la clase donde tenemos todas las consultas
+
                 try {
                     ResultSet usuarios = obtenerUsuarioBaseDeDatos.ObtenerUsuarioBBDD(); // Recupera los usuario de nuestra BBDD
                     while (usuarios.next()) { //Recorre los usuarios que acabamos de recuperar
                         String usuarioBBDD = usuarios.getString("Nombre_usuario"); //Recupera y asigna en una variable el ussername
                         String passBBDD = usuarios.getString("contraseña"); //Recupera y asigna en una variable el password
                         System.out.println(usuarioBBDD + "\t" + passBBDD);
+
+                        //HAY QUE DEPURAR EL INICIO DE SESIÓN!!!!!!
+                        if (usuarioBBDD.equals(usuarioInput) & passBBDD.equals(passwordInput)) {
+                            setVisible(false); //Para que se cierre la pestaña anterior de Login una vez accedamos a la principal
+                            Principal principal = new Principal();
+                            principal.setVisible(true);
+                        }else {
+                            JOptionPane.showMessageDialog(null, "Usario o contraseña incorrectos");
+                            nombreUsuario.setText("");
+                            contraseña.setText("");
+                        }
                     }
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
