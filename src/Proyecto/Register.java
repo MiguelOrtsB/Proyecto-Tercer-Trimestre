@@ -44,7 +44,9 @@ public class Register extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Establecemos que el programa se detenga al cerrar la ventana
     }
 
-    private void iniciarComponentes(){ //Método para iniciar y agregar el Panel y todos sus componentes en el Frame
+    // MÉTODO PARA INICIAR Y AGREGAR EL PANEL Y TODOS SU COMPONENTES AL FRAME
+
+    private void iniciarComponentes(){
 
         colocarPanel();
         colocarLabels();
@@ -163,6 +165,8 @@ public class Register extends JFrame {
         registerButton.setBounds(270, 520, 150, 40);
         //registerButton.setBorder(BorderFactory.);
         panel.add(registerButton);
+
+        // MÉTODO ACTIONLISTENER PARA REGISTRAR A LOS NUEVOS USUARIOS
 
         ActionListener registrado = new ActionListener() {
             @Override
