@@ -6,12 +6,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Guitarras extends JFrame{
 
     private JPanel panelGuitarras;
     private JLabel labelLogo;
     private JButton atras;
+    private JButton btn1;
 
 
     public Guitarras(){
@@ -80,7 +83,7 @@ public class Guitarras extends JFrame{
         prec1.setBounds(55, 363, 50, 50);
         prec1.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec1);
-        JButton btn1 = new JButton("Comprar");
+        btn1 = new JButton("Comprar");
         btn1.setBounds(115, 380, 85, 20);
         btn1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn1);
@@ -287,6 +290,30 @@ public class Guitarras extends JFrame{
         linea.setBounds(4, 120, 1518, 6);
         linea.setBackground(new Color(0x049B04));
         panelGuitarras.add(linea);
+
+        // EVENTO ACTIONLISTENER (COMPRAR GUITARRA 1) ¡¡FALTAN MUCHAS FUNCIONALIDADES (LETRERO VENDIDO, PERSISTENCIA DE DATOS, ETC)!!
+        ActionListener compraGuitar = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    boolean encontrado = false;
+                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                    String g = "Gibson Slash Les Paul Standard"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
+                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    btn1.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+
+                }catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+                JLabel sold1 = new JLabel("VENDIDO");
+                sold1.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 38));
+                sold1.setBounds(50, 340, 300, 50);
+                panelGuitarras.add(sold1);
+            }
+        };
+        btn1.addActionListener(compraGuitar); //Añadimos al botón 1 el método Comprar Guitarra
+
     }
 
     private void colocarBotonesGuitarras(){
@@ -308,4 +335,5 @@ public class Guitarras extends JFrame{
         };
         atras.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "guitarras"
     }
+
 }
