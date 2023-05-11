@@ -29,7 +29,6 @@ public class MySQLConnection {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
         return conn;
     }
 }

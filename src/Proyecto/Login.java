@@ -142,44 +142,28 @@ public class Login extends JFrame {
                 ConsultasBBDD obtenerUsuarioBaseDeDatos = new ConsultasBBDD(); //Instaciamos la clase donde tenemos todas las consultas
 
                 try {
+                    boolean encontrado = false; //Variable para el mensaje de "usuario incorrecto"
                     ResultSet usuarios = obtenerUsuarioBaseDeDatos.ObtenerUsuarioBBDD(); // Recupera los usuario de nuestra BBDD
                     while (usuarios.next()) { //Recorre los usuarios que acabamos de recuperar
                         String usuarioBBDD = usuarios.getString("Nombre_usuario"); //Recupera y asigna en una variable el ussername
                         String passBBDD = usuarios.getString("contraseña"); //Recupera y asigna en una variable el password
                         System.out.println(usuarioBBDD + "\t" + passBBDD);
 
-                        //HAY QUE DEPURAR EL INICIO DE SESIÓN!!!!!!
-                        if (usuarioBBDD.equals(usuarioInput) & passBBDD.equals(passwordInput)) {
+                        if (usuarioBBDD.equals(usuarioInput) & passBBDD.equals(passwordInput)) { //Si cumple la condición entra
                             setVisible(false); //Para que se cierre la pestaña anterior de Login una vez accedamos a la principal
                             Principal principal = new Principal();
                             principal.setVisible(true);
-                        }else {
-                            JOptionPane.showMessageDialog(null, "Usario o contraseña incorrectos");
-                            nombreUsuario.setText("");
-                            contraseña.setText("");
+                            encontrado = true; //Cambia el booleano a true y así no entra en el if "no encontrado" y no salte el mensaje
                         }
+                    }
+                    if(!encontrado) { //Este if está fuera del bucle while para que por cada vuelta del bucle no nos salte el mensaje
+                        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos"); //Mensaje error
+                        nombreUsuario.setText("");
+                        contraseña.setText("");
                     }
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
-
-
-                boolean mensaje = false;
-                /* for(int i = 0; i < Usuarios.length; i++){
-                    if(Usuarios[i].equals(usuario)&&Claves[i].equals(password)){
-                        mensaje=true;            }
-                }
-                if(mensaje){
-                    setVisible(false); //Para que se cierre la pestaña anterior de Login una vez accedamos a la principal
-                    Principal principal = new Principal();
-                    principal.setVisible(true);
-
-
-                }else {
-                    JOptionPane.showMessageDialog(null, "Usario o contraseña incorrectos");
-                    nombreUsuario.setText("");
-                    contraseña.setText("");
-                }*/
             }
         };
         loginButton.addActionListener(oyenteDeAccion); //Le agreamos al botón de Iniciar Sesión el evento ActionListener
