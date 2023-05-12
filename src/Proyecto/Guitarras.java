@@ -307,7 +307,7 @@ public class Guitarras extends JFrame{
 
                 if(guitBBDD.equals(g) & !dispBBDD){
                     btn1.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
-                    JLabel sold1 = new JLabel("VENDIDA");
+                    JLabel sold1 = new JLabel("VENDIDA"); //Una vez realizada la compra aparecerá cartel avisando de la venta
                     sold1.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 38));
                     sold1.setBounds(50, 220, 300, 50);
                     sold1.setForeground(Color.RED);
@@ -331,6 +331,7 @@ public class Guitarras extends JFrame{
                 }catch (SQLException ex){
                     ex.printStackTrace();
                 }
+                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
                 JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
                 JLabel sold1 = new JLabel("VENDIDO");
                 sold1.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 38));
