@@ -62,4 +62,19 @@ public class ConsultasBBDD {
         }
         return null;
     }
+
+    public ResultSet obtenerDisponibilidad() throws SQLException {
+
+        //Creamos la consulta dentro de una variable
+        String queryObtenerUsuarios = "SELECT Nombre_guitarra, Disponibilidad FROM guitarras"; //Seleccionamos todos los usuarios de la BBDD
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(queryObtenerUsuarios); //Prepara la conexión y la query
+            ResultSet resultado = preparedStatement.executeQuery(queryObtenerUsuarios); //Ejecuta la consulta SELECT de arriba
+            System.out.println("Guitarra encontrado");
+            return resultado; //Retornamos el resultado para que podamos usarlo desde otras clases o métodos
+        } catch (SQLException e) {
+            e.printStackTrace(); //En caso de error muestra lo que ha ocurrido
+        }
+        return null;
+    }
 }
