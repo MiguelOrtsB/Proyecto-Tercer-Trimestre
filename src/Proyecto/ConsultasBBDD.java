@@ -39,8 +39,13 @@ public class ConsultasBBDD {
         String queryRegistro = "INSERT INTO usuarios (Nombre_usuario, Correo, Contraseña) VALUES ('"+user+"', '"+mail+"', '"+password+"')";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(queryRegistro); //Prepara la conexión y la query
-            int resultado = preparedStatement.executeUpdate(queryRegistro); //Ejecuta la consulta INSERT de arriba
-            System.out.println("Usuario creado");
+            if(user.length()==0 & mail.length()==0){
+                JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+            }else{
+                int resultado = preparedStatement.executeUpdate(queryRegistro); //Ejecuta la consulta INSERT de arriba
+                System.out.println("Usuario creado");
+            }
+
         } catch (SQLException e) {
             e.printStackTrace(); //En caso de error muestra lo que ha ocurrido
         }

@@ -157,7 +157,7 @@ public class Login extends JFrame {
                         }
                     }
                     if(!encontrado) { //Este if está fuera del bucle while para que por cada vuelta del bucle no nos salte el mensaje
-                        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos"); //Mensaje error
+                        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE); //Mensaje error
                         nombreUsuario.setText("");
                         contraseña.setText("");
                     }

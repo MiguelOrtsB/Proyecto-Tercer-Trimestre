@@ -28,6 +28,7 @@ public class Register extends JFrame {
     private JButton registerButton;
     private JCheckBox checkBox;
     private JCheckBox checkBox2;
+    private Icon icon2;
 
 
     public Register() { //Constructor del Frame
@@ -78,6 +79,10 @@ public class Register extends JFrame {
         URL urllogo = Proyecto.Login.class.getResource("Imagenes/Green-Devil-988x1024.png");
         ImageIcon image = new ImageIcon(urllogo);
         Icon icon = new ImageIcon(image.getImage().getScaledInstance(260, 270, Image.SCALE_SMOOTH));
+
+        URL urllogo2 = Proyecto.Login.class.getResource("Imagenes/Green-Devil-988x1024.png");
+        ImageIcon image2 = new ImageIcon(urllogo);
+        icon2 = new ImageIcon(image.getImage().getScaledInstance(70, 71, Image.SCALE_SMOOTH));
 
         // LABELS (TEXTO Y LOGO)
 
@@ -182,7 +187,7 @@ public class Register extends JFrame {
                     exception.printStackTrace(); //En caso de error muestra lo que ha ocurrido
                 }
 
-                JOptionPane.showMessageDialog(null, "¡Gracias por registrarte!"); //Mensaje agracedimiento
+                JOptionPane.showMessageDialog(null, "¡Gracias por registrarte!", "Register", JOptionPane.DEFAULT_OPTION, icon2); //Mensaje agracedimiento
                 Login login = new Login(); //Creamos la clase de Login para que nos muestre la ventana de la misma
                 setVisible(false); //Cerramos la ventana de registro para que no visualizen las dos simultáneamente
                 login.setVisible(true); //Y abrimos nuevamente la ventana de Login una vez que el usuario se haya registrado
