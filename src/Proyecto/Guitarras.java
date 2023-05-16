@@ -15,6 +15,8 @@ public class Guitarras extends JFrame{
     private JLabel labelLogo;
     private JButton atras;
     private JButton btn1;
+    private JButton btn2;
+    private JButton btn3;
 
 
     public Guitarras(){
@@ -87,6 +89,7 @@ public class Guitarras extends JFrame{
         btn1.setBounds(115, 380, 85, 20);
         btn1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn1);
+        comprarGuitarra1();
 
         // GUITARRA 2 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
 
@@ -104,10 +107,11 @@ public class Guitarras extends JFrame{
         prec2.setBounds(313, 363, 50, 50);
         prec2.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec2);
-        JButton btn2 = new JButton("Comprar");
+        btn2 = new JButton("Comprar");
         btn2.setBounds(363, 380, 85, 20);
         btn2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn2);
+        comprarGuitarra2();
 
         // GUITARRA 3 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
 
@@ -125,10 +129,11 @@ public class Guitarras extends JFrame{
         prec3.setBounds(555, 363, 50, 50);
         prec3.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec3);
-        JButton btn3 = new JButton("Comprar");
+        btn3 = new JButton("Comprar");
         btn3.setBounds(615, 380, 85, 20);
         btn3.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn3);
+        comprarGuitarra3();
 
         // GUITARRA 4 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
 
@@ -277,7 +282,6 @@ public class Guitarras extends JFrame{
         btn10.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelGuitarras.add(btn10);
 
-
         // TEXTO / TÍTULO DE LA VENTANA
 
         JLabel music = new JLabel("GUITARRAS");
@@ -290,7 +294,9 @@ public class Guitarras extends JFrame{
         linea.setBounds(4, 120, 1518, 6);
         linea.setBackground(new Color(0x049B04));
         panelGuitarras.add(linea);
+    }
 
+    private void comprarGuitarra1(){
         /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 1 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
         AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
@@ -298,12 +304,12 @@ public class Guitarras extends JFrame{
 
         try{
             ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
-            ResultSet usuarios = compramosGuitar.obtenerDisponibilidad();
+            ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
             String g = "Gibson Slash Les Paul Standard"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
 
-            while(usuarios.next()){
-                String guitBBDD = usuarios.getString("Nombre_guitarra"); //
-                boolean dispBBDD = usuarios.getBoolean("Disponibilidad");
+            while(guitarras.next()){
+                String guitBBDD = guitarras.getString("Nombre_guitarra"); //
+                boolean dispBBDD = guitarras.getBoolean("Disponibilidad");
 
                 if(guitBBDD.equals(g) & !dispBBDD){
                     btn1.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
@@ -319,6 +325,7 @@ public class Guitarras extends JFrame{
         }
 
         // EVENTO ACTIONLISTENER (COMPRAR GUITARRA 1) ¡¡FALTAN MUCHAS FUNCIONALIDADES (LETRERO VENDIDO, PERSISTENCIA DE DATOS, ETC)!!
+
         ActionListener compraGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -327,20 +334,110 @@ public class Guitarras extends JFrame{
                     String g = "Gibson Slash Les Paul Standard"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
                     btn1.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
-
                 }catch (SQLException ex){
                     ex.printStackTrace();
                 }
                 JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
                 JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
-                JLabel sold1 = new JLabel("VENDIDO");
-                sold1.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 38));
-                sold1.setForeground(Color.RED);
-                sold1.setBounds(50, 290, 300, 50);
-                panelGuitarras.add(sold1);
             }
         };
         btn1.addActionListener(compraGuitar); //Añadimos al botón 1 el método Comprar Guitarra
+    }
+
+    private void comprarGuitarra2(){
+        /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 2 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
+        AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
+        COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
+         */
+
+        try{
+            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+            ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
+            String g = "Jackson SL3X DX"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
+
+            while(guitarras.next()){
+                String guitBBDD = guitarras.getString("Nombre_guitarra"); //
+                boolean dispBBDD = guitarras.getBoolean("Disponibilidad");
+
+                if(guitBBDD.equals(g) & !dispBBDD){
+                    btn2.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                    JLabel sold2 = new JLabel("VENDIDA"); //Una vez realizada la compra aparecerá cartel avisando de la venta
+                    sold2.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 38));
+                    sold2.setBounds(300, 220, 300, 50);
+                    sold2.setForeground(Color.RED);
+                    panelGuitarras.add(sold2);
+                }
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        // EVENTO ACTIONLISTENER (COMPRAR GUITARRA 2) ¡¡FALTAN MUCHAS FUNCIONALIDADES (LETRERO VENDIDO, PERSISTENCIA DE DATOS, ETC)!!
+
+        ActionListener compraGuitar = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                    String g = "Jackson SL3X DX"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
+                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    btn2.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                }catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
+                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+            }
+        };
+        btn2.addActionListener(compraGuitar); //Añadimos al botón 2 el método Comprar Guitarra
+    }
+
+    private void comprarGuitarra3(){
+        /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 3 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
+        AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
+        COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
+         */
+
+        try{
+            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+            ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
+            String g = "Fender Telecaster Custom 60"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
+
+            while(guitarras.next()){
+                String guitBBDD = guitarras.getString("Nombre_guitarra"); //
+                boolean dispBBDD = guitarras.getBoolean("Disponibilidad");
+
+                if(guitBBDD.equals(g) & !dispBBDD){
+                    btn3.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                    JLabel sold3 = new JLabel("VENDIDA"); //Una vez realizada la compra aparecerá cartel avisando de la venta
+                    sold3.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 38));
+                    sold3.setBounds(550, 220, 300, 50);
+                    sold3.setForeground(Color.RED);
+                    panelGuitarras.add(sold3);
+                }
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        // EVENTO ACTIONLISTENER (COMPRAR GUITARRA 2) ¡¡FALTAN MUCHAS FUNCIONALIDADES (LETRERO VENDIDO, PERSISTENCIA DE DATOS, ETC)!!
+
+        ActionListener compraGuitar = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                    String g = "Fender Telecaster Custom 60"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
+                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    btn3.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                }catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
+                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+            }
+        };
+        btn3.addActionListener(compraGuitar); //Añadimos al botón 2 el método Comprar Guitarra
     }
 
     private void colocarBotonesGuitarras(){
@@ -362,5 +459,4 @@ public class Guitarras extends JFrame{
         };
         atras.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "guitarras"
     }
-
 }

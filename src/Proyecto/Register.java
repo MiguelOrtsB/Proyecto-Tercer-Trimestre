@@ -182,15 +182,16 @@ public class Register extends JFrame {
                     String u = nombreUsuario.getText(); //Almacenamos en una variable el nombre de usuario introducido
                     String c = correo.getText(); //Almacenamos en una variable el correo introducido
                     String p = contraseña.getText(); //Almacenamos en una variable la contraseña introducido
-                    querys.RegistrarUsuario(u, c, p); //Llamamos al método para registrar usuario y le pasamos los parámetros anteriores
+                    //querys.RegistrarUsuario(u, c, p); Llamamos al método para registrar usuario y le pasamos los parámetros anteriores
+                    if (querys.RegistrarUsuario(u,c,p)) {
+                        JOptionPane.showMessageDialog(null, "¡Gracias por registrarte!", "Register", JOptionPane.DEFAULT_OPTION, icon2); //Mensaje agracedimiento
+                        Login login = new Login(); //Creamos la clase de Login para que nos muestre la ventana de la misma
+                        setVisible(false); //Cerramos la ventana de registro para que no visualizen las dos simultáneamente
+                        login.setVisible(true); //Y abrimos nuevamente la ventana de Login una vez que el usuario se haya registrado
+                    }
                 } catch (SQLException exception) {
                     exception.printStackTrace(); //En caso de error muestra lo que ha ocurrido
                 }
-
-                JOptionPane.showMessageDialog(null, "¡Gracias por registrarte!", "Register", JOptionPane.DEFAULT_OPTION, icon2); //Mensaje agracedimiento
-                Login login = new Login(); //Creamos la clase de Login para que nos muestre la ventana de la misma
-                setVisible(false); //Cerramos la ventana de registro para que no visualizen las dos simultáneamente
-                login.setVisible(true); //Y abrimos nuevamente la ventana de Login una vez que el usuario se haya registrado
             }
         };
         registerButton.addActionListener(registrado); //Una vez que el usuario haga click en el botón se activará el ActionListener
