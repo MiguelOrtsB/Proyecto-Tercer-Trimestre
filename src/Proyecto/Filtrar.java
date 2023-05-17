@@ -20,15 +20,15 @@ public class Filtrar extends JFrame{
     private JComboBox Filtro;
     private JTable guitarList;
 
+    //CONEXIONES
     private MySQLConnection SQL = new MySQLConnection();
 
-    // Llamas al método que tiene la clase y te devuelve una conexión
     private Connection conn = SQL.conectarMySQL();
 
     public Filtrar(){
+
         // FRAME
 
-        //setExtendedState(MAXIMIZED_BOTH);
         setSize(1280, 720);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -63,6 +63,9 @@ public class Filtrar extends JFrame{
     }
 
     private void colocarLabelsFiltrar(){
+
+        //IMÁGEN LOGO
+
         URL urlLogo = Proyecto.Login.class.getResource("Imagenes/Green-Devil-988x1024.png");
         ImageIcon image = new ImageIcon(urlLogo);
         Icon icon = new ImageIcon(image.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
@@ -70,6 +73,8 @@ public class Filtrar extends JFrame{
         labelLogo.setIcon(icon); //Le añadimos la imagen del logo
         labelLogo.setBounds(30, 5, 160, 120); //Establecemos su ubicación en el Panel
         panelFiltrar.add(labelLogo); //Añadimos el label al Panel
+
+        //COMBO BOX + MÉTODO PARA FILTRAR LA BÚSQUEDA
 
         Filtro = new JComboBox<>();
         Filtro.setBackground(new java.awt.Color(210, 210, 210));
@@ -81,12 +86,11 @@ public class Filtrar extends JFrame{
         ActionListener filtrarGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // '"+Filtro.getSelectedItem().toString()+"'"
                 String query = "SELECT * FROM guitarras WHERE Nombre_guitarra LIKE '%"+Filtro.getSelectedItem().toString()+"%'";
                 try {
                     PreparedStatement preparedStatement = conn.prepareStatement(query); //Coge la conexión que tenemos configurada
-                    ResultSet resultado = preparedStatement.executeQuery(query); //Ejecuta la consulta UPDATE de arriba (query) en la BBDD
-                    guitarList.setModel(DbUtils.resultSetToTableModel(resultado));
+                    ResultSet resultado = preparedStatement.executeQuery(query); //Ejecuta la consulta SELECT de arriba (query) en la BBDD
+                    guitarList.setModel(DbUtils.resultSetToTableModel(resultado)); //Muestra en la tabla el resultado de la query
                 } catch (Exception exception) {
                     exception.printStackTrace(); //En caso de error muestra lo que ha ocurrido
                 }
@@ -94,6 +98,7 @@ public class Filtrar extends JFrame{
         };
        Filtro.addActionListener(filtrarGuitar);
 
+       //TABLA
 
         /*String data[][]={ {"Gibson Slash Les Paul Standard","2599","Eléctrica", "1"},
                 {"102","Jai","780000", "1"},
@@ -106,6 +111,8 @@ public class Filtrar extends JFrame{
         Border borderTable = BorderFactory.createLineBorder(Color.black, 1); //Diseñamos el borde del Panel (color y grosor)
         guitarList.setBorder(borderTable);
         panelFiltrar.add(guitarList);
+
+        //LABELS VARIOS
 
         JLabel filtrar = new JLabel("Filtrar Marca:");
         filtrar.setFont(new Font("Impact", Font.ROMAN_BASELINE,15));
@@ -132,20 +139,6 @@ public class Filtrar extends JFrame{
         atras.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelFiltrar.add(atras);
     }
-
-    private ResultSet FiltrarPorductos(){
-
-        String query = "SELECT * FROM guitarras WHERE Nombre_guitarra LIKE '%"+ Filtro.getSelectedItem().toString()+"%'";
-        ResultSet resultado = null;
-        try {
-            PreparedStatement preparedStatement = conn.prepareStatement(query); //Coge la conexión que tenemos configurada
-            resultado = preparedStatement.executeQuery(query); //Ejecuta la consulta UPDATE de arriba (query) en la BBDD
-            //guitarList.setModel(DbUtils.resultSetToTableModel(resultado));
-        } catch (Exception e) {
-            e.printStackTrace(); //En caso de error muestra lo que ha ocurrido
-        }
-        return resultado;
-    };
 
     public static void main(String[] args) {
         Filtrar filtrar = new Filtrar();
