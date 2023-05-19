@@ -19,7 +19,7 @@ public class Filtrar extends JFrame{
     private JButton atras;
     private JComboBox Filtro;
     private JComboBox FiltroPrecio;
-    private JComboBox FiltroPrecio2;
+    private JComboBox FiltroTipo;
     private JTable guitarList;
 
     //CONEXIONES
@@ -81,23 +81,23 @@ public class Filtrar extends JFrame{
         Filtro = new JComboBox<>();
         Filtro.setBackground(new java.awt.Color(210, 210, 210));
         Filtro.setFont(new java.awt.Font("Source Sans Pro Black", Font.PLAIN, 15));
-        Filtro.setBounds(570, 140, 100, 40);
-        Filtro.setModel(new DefaultComboBoxModel<>(new String[] { "", "Gibson", "Fender", "ESP", "Yamaha", "Ibanez", "EVH" }));
+        Filtro.setBounds(640, 140, 100, 40);
+        Filtro.setModel(new DefaultComboBoxModel<>(new String[] { "", "Gibson", "Fender", "ESP", "Yamaha", "Ibanez", "EVH", "Jackson" }));
         panelFiltrar.add(Filtro);
 
         FiltroPrecio = new JComboBox<>();
         FiltroPrecio.setBackground(new java.awt.Color(210, 210, 210));
         FiltroPrecio.setFont(new java.awt.Font("Source Sans Pro Black", Font.PLAIN, 15));
-        FiltroPrecio.setBounds(300, 140, 60, 40);
-        FiltroPrecio.setModel(new DefaultComboBoxModel<>(new Integer[] {0, 100, 200, 400}));
+        FiltroPrecio.setBounds(300, 140, 105, 40);
+        FiltroPrecio.setModel(new DefaultComboBoxModel<>(new String[] {"", "< 500", "500 - 1000", "1000 - 2500", "> 2500"}));
         panelFiltrar.add(FiltroPrecio);
 
-        FiltroPrecio2 = new JComboBox<>();
-        FiltroPrecio2.setBackground(new java.awt.Color(210, 210, 210));
-        FiltroPrecio2.setFont(new java.awt.Font("Source Sans Pro Black", Font.PLAIN, 15));
-        FiltroPrecio2.setBounds(380, 140, 60, 40);
-        FiltroPrecio2.setModel(new DefaultComboBoxModel<>(new Integer[] {500, 1000, 1500, 2000, 10000}));
-        panelFiltrar.add(FiltroPrecio2);
+        FiltroTipo = new JComboBox<>();
+        FiltroTipo.setBackground(new java.awt.Color(210, 210, 210));
+        FiltroTipo.setFont(new java.awt.Font("Source Sans Pro Black", Font.PLAIN, 15));
+        FiltroTipo.setBounds(954, 140, 100, 40);
+        FiltroTipo.setModel(new DefaultComboBoxModel<>(new String[] {"", "Eléctrica", "Acústica"}));
+        panelFiltrar.add(FiltroTipo);
 
         // FILTRAR POR MARCAS
         ActionListener filtrarGuitar = new ActionListener() {
@@ -115,11 +115,30 @@ public class Filtrar extends JFrame{
         };
        Filtro.addActionListener(filtrarGuitar);
 
-        // FILTRAR POR PRECIOS (HAY QUE SOLUCIONAR!!!!)
+        // FILTRAR POR PRECIOS
         ActionListener filtrarPrecios = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio BETWEEN '"+FiltroPrecio.getSelectedItem().toString()+"' AND '"+FiltroPrecio2.getSelectedItem().toString()+'"';
+                String query = "";
+                switch(FiltroPrecio.getSelectedItem().toString()){
+                    case "":
+                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras";
+                        break;
+                    case "< 500":
+                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio < 500";
+                        break;
+                    case "500 - 1000":
+                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio BETWEEN 500 AND 1000";
+                        break;
+                    case "1000 - 2500":
+                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio BETWEEN 1000 AND 2500";
+                        break;
+                    case "> 2500":
+                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio > 2500";
+                        break;
+
+
+                }
                 try {
                     PreparedStatement preparedStatement = conn.prepareStatement(query); //Coge la conexión que tenemos configurada
                     ResultSet resultado = preparedStatement.executeQuery(query); //Ejecuta la consulta SELECT de arriba (query) en la BBDD
@@ -130,7 +149,23 @@ public class Filtrar extends JFrame{
             }
         };
         FiltroPrecio.addActionListener(filtrarPrecios);
-        FiltroPrecio2.addActionListener(filtrarPrecios);
+
+        // FILTRAR POR TIPO
+        ActionListener filtrarTipoGuitarra = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Tipo = '"+FiltroTipo.getSelectedItem().toString()+"'";
+                try {
+                    PreparedStatement preparedStatement = conn.prepareStatement(query); //Coge la conexión que tenemos configurada
+                    ResultSet resultado = preparedStatement.executeQuery(query); //Ejecuta la consulta SELECT de arriba (query) en la BBDD
+                    guitarList.setModel(DbUtils.resultSetToTableModel(resultado)); //Muestra en la tabla el resultado de la query
+                } catch (Exception exception) {
+                    exception.printStackTrace(); //En caso de error muestra lo que ha ocurrido
+                }
+            }
+        };
+        FiltroTipo.addActionListener(filtrarTipoGuitarra);
+
 
        //TABLA
 
@@ -157,18 +192,23 @@ public class Filtrar extends JFrame{
 
         JLabel filtrar = new JLabel("Filtrar Marca:");
         filtrar.setFont(new Font("Impact", Font.ROMAN_BASELINE,15));
-        filtrar.setBounds(480, 110, 500, 100);
+        filtrar.setBounds(545, 110, 500, 100);
         panelFiltrar.add(filtrar);
 
-        JLabel filtrarPrec = new JLabel("Filtrar Precio De:");
+        JLabel filtrarPrec = new JLabel("Filtrar Precio:");
         filtrarPrec.setFont(new Font("Impact", Font.ROMAN_BASELINE,15));
-        filtrarPrec.setBounds(193, 110, 500, 100);
+        filtrarPrec.setBounds(204, 110, 500, 100);
         panelFiltrar.add(filtrarPrec);
+
+        JLabel filtrarTipo = new JLabel("Filtrar Tipo:");
+        filtrarTipo.setFont(new Font("Impact", Font.ROMAN_BASELINE,15));
+        filtrarTipo.setBounds(872, 110, 500, 100);
+        panelFiltrar.add(filtrarTipo);
 
 
         JLabel music = new JLabel("BUSCAR");
         music.setFont(new Font("Impact", Font.ROMAN_BASELINE,70));
-        music.setBounds(510, 10, 500, 100);
+        music.setBounds(530, 10, 500, 100);
         music.setForeground(new Color(0x049B04));
         panelFiltrar.add(music);
 
