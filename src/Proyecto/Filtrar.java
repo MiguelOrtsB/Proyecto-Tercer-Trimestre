@@ -125,19 +125,17 @@ public class Filtrar extends JFrame{
                         query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras";
                         break;
                     case "< 500":
-                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio < 500";
+                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio < 500 ORDER BY Precio ASC";
                         break;
                     case "500 - 1000":
-                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio BETWEEN 500 AND 1000";
+                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio BETWEEN 500 AND 1000 ORDER BY Precio ASC";
                         break;
                     case "1000 - 2500":
-                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio BETWEEN 1000 AND 2500";
+                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio BETWEEN 1000 AND 2500 ORDER BY Precio ASC";
                         break;
                     case "> 2500":
-                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio > 2500";
+                        query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Precio > 2500 ORDER BY Precio ASC";
                         break;
-
-
                 }
                 try {
                     PreparedStatement preparedStatement = conn.prepareStatement(query); //Coge la conexión que tenemos configurada
@@ -179,11 +177,13 @@ public class Filtrar extends JFrame{
                 {"Ibanez XPTB720", "1299.0", "Eléctrica", "--"},
                 {"Jackson SL3X DX", "719.0", "Eléctrica", "--"},
                 {"Yamaha F325 Acoustic", "169.0", "Acústica", "--"}};
+
         String column[]={"Nombre Guitarra","Precio","Tipo","Disponibilidad"};
 
         guitarList = new JTable(data, column); //Creamos la tabla
         guitarList.setBackground(new java.awt.Color(210, 210, 210));
         guitarList.setBounds(130, 220, 1000, 420);
+        guitarList.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 15));
         Border borderTable = BorderFactory.createLineBorder(Color.black, 1); //Diseñamos el borde del Panel (color y grosor)
         guitarList.setBorder(borderTable);
         panelFiltrar.add(guitarList);
@@ -204,7 +204,6 @@ public class Filtrar extends JFrame{
         filtrarTipo.setFont(new Font("Impact", Font.ROMAN_BASELINE,15));
         filtrarTipo.setBounds(872, 110, 500, 100);
         panelFiltrar.add(filtrarTipo);
-
 
         JLabel music = new JLabel("BUSCAR");
         music.setFont(new Font("Impact", Font.ROMAN_BASELINE,70));
@@ -249,6 +248,16 @@ public class Filtrar extends JFrame{
         atras.setBounds(1135, 45, 100, 35);
         atras.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelFiltrar.add(atras);
+
+        ActionListener accederPrincipal = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                setVisible(false); //Para cerrar la ventana de Guitarras una vez hagamos click en el botón de "Atrás"
+                new Principal().setVisible(true);
+            }
+        };
+        atras.addActionListener(accederPrincipal);
     }
 
     public static void main(String[] args) {

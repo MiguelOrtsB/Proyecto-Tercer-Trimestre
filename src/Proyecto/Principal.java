@@ -13,6 +13,7 @@ public class Principal extends JFrame {
     private JMenu menu1;
     private JMenu menu11;
     private JMenu menu12;
+    private JMenu menu13;
 
     public Principal(){
 
@@ -204,7 +205,7 @@ public class Principal extends JFrame {
         navbar.setBounds(4, 142, 1258, 50); //Tamaño y posición del MenuBar
         panelPrincipal.add(navbar); //La añadimos al PANEL
 
-        // OPCIONES DEL MENU BAR (MENÚ, CONTACTO, INFO)
+        // OPCIONES DEL MENU BAR (MENÚ, CONTACTO, INFO, BUSCAR)
 
         menu1 = new JMenu("Menú"); //Añadimos el Menu1 que va encima del MenuBar y que abrirá el desplegable de opciones
         menu1.setFont(new Font("Cinzel", Font.PLAIN,18)); //Le aplicamos tipo de fuente, color y tamaño
@@ -230,6 +231,14 @@ public class Principal extends JFrame {
         menu12.setRolloverEnabled(true);
         menu12.addMouseListener(mouseAction); //Añadimos los eventos de ratón de más abajo al Menu12
         navbar.add(menu12); //Añadimos el Menu al MenuBar
+
+        menu13 = new JMenu("Buscar"); //Añadimos el Menu1 que va encima del MenuBar y que abrirá el desplegable de opciones
+        menu13.setFont(new Font("Cinzel", Font.PLAIN,18)); //Le aplicamos tipo de fuente, color y tamaño
+        menu13.setForeground(Color.WHITE); //Color de la fuente
+        menu13.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Cambia el tipo de cursor cuando nos posamos encima
+        menu13.setRolloverEnabled(true);
+        menu13.addMouseListener(mouseAction); //Añadimos los eventos de ratón de más abajo al Menu13
+        navbar.add(menu13); //Añadimos el Menu al MenuBar
 
         // SUBOPCIONES DENTRO DE MENÚ
 
@@ -298,6 +307,13 @@ public class Principal extends JFrame {
         whowho.setCursor(new Cursor(Cursor.HAND_CURSOR));
         menu12.add(whowho);
 
+        // RESULTADOS PARA LA OPCIÓN DE "BUSCAR"
+
+        JMenuItem buscarGuitarras = new JMenuItem("Guitarras");
+        buscarGuitarras.setFont(new Font("Cinzel", Font.PLAIN,20));
+        buscarGuitarras.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        menu13.add(buscarGuitarras);
+
         // MÉTODO ACTIONLISTENER (PARA ABRIR LA VENTADA DE "GUITARRAS" UNA VEZ SELECCIONEMOS ESA OPCIÓN EN EL MENÚ)
 
         ActionListener accederRegister = new ActionListener() {
@@ -323,6 +339,19 @@ public class Principal extends JFrame {
             }
         };
         whowho.addActionListener(accederInfo); //Añadimos el método ActionListener a la subopción de "¿Quiénes somos?"
+
+        // MÉTODO ACTIONLISTENER (PARA ABRIR LA VENTANA DE "FILTRAR" UNA VEZ SELECCIONEMOS LA OPCIÓN GUITARRAS EN EL MENÚ "BUSCAR")
+
+        ActionListener accederFiltrar = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                setVisible(false); //Para cerrar la ventana de Principal una vez hagamos click en el botón de ¿Quiénes somos?
+                Filtrar filtrar = new Filtrar();
+                filtrar.setVisible(true);
+            }
+        };
+        buscarGuitarras.addActionListener(accederFiltrar); //Añadimos el método ActionListener a la subopción de "¿Quiénes somos?"
     }
 
     // EVENTOS DE RATÓN (CUANDO PASAMOS CON EL RATÓN POR ENCIMA DEL MENÚ BAR CAMBIA DE COLOR)
