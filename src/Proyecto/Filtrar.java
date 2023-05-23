@@ -179,7 +179,8 @@ public class Filtrar extends JFrame{
                 {"Gibson 1960 Hummingbird", "4980.0", "Acústica", "--"},
                 {"Ibanez XPTB720", "1299.0", "Eléctrica", "--"},
                 {"Jackson SL3X DX", "719.0", "Eléctrica", "--"},
-                {"Yamaha F325 Acoustic", "169.0", "Acústica", "--"}};
+                {"Yamaha F325 Acoustic", "169.0", "Acústica", "--"},
+                {"Yamaha AC1M II TBS", "748.0", "Acústica", "--"}};
 
         String column[]={"Nombre Guitarra","Precio","Tipo","Disponibilidad"};
 
