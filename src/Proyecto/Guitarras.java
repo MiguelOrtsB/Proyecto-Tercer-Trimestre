@@ -338,7 +338,7 @@ public class Guitarras extends JFrame{
             ex.printStackTrace();
         }
 
-        // EVENTO ACTIONLISTENER (COMPRAR GUITARRA 1) ¡¡FALTAN MUCHAS FUNCIONALIDADES (LETRERO VENDIDO, PERSISTENCIA DE DATOS, ETC)!!
+        // EVENTO ACTIONLISTENER (COMPRAR GUITARRA 1)
 
         ActionListener compraGuitar = new ActionListener() {
             @Override
@@ -347,12 +347,14 @@ public class Guitarras extends JFrame{
                     ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
                     String g = "Gibson Slash Les Paul Standard"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra:"); //Introducir tarjeta para compra
-                    if(nombre.length()>0){ //Si no introducimos nada en el JOptionPane no podremos comprar la guitarra
-                        compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
-                        btn1.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
-                        JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+                    if (nombre != null) {
+                        if(nombre.length()>0){ //Si no introducimos nada en el JOptionPane no podremos comprar la guitarra
+                            compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                            btn1.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                            JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+                        }
                     }
                 }catch (SQLException ex){
                     ex.printStackTrace();
@@ -398,13 +400,19 @@ public class Guitarras extends JFrame{
                 try{
                     ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
                     String g = "Jackson SL3X DX"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
-                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
-                    btn2.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                    String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    if (nombre != null) {
+                        if(nombre.length()>0){ //Si no introducimos nada en el JOptionPane no podremos comprar la guitarra
+                            compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                            btn2.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                            JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
                 }catch (SQLException ex){
                     ex.printStackTrace();
                 }
-                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
-                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
             }
         };
         btn2.addActionListener(compraGuitar); //Añadimos al botón 2 el método Comprar Guitarra
@@ -446,13 +454,19 @@ public class Guitarras extends JFrame{
                 try{
                     ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
                     String g = "Fender Telecaster Custom 60"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
-                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
-                    btn3.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                    String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    if (nombre != null) {
+                        if(nombre.length()>0){ //Si no introducimos nada en el JOptionPane no podremos comprar la guitarra
+                            compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                            btn3.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                            JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
                 }catch (SQLException ex){
                     ex.printStackTrace();
                 }
-                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
-                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
             }
         };
         btn3.addActionListener(compraGuitar); //Añadimos al botón 3 el método Comprar Guitarra
@@ -494,13 +508,19 @@ public class Guitarras extends JFrame{
                 try{
                     ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
                     String g = "EVH Striped Series"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
-                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
-                    btn4.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                    String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    if (nombre != null) {
+                        if(nombre.length()>0){ //Si no introducimos nada en el JOptionPane no podremos comprar la guitarra
+                            compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                            btn4.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                            JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
                 }catch (SQLException ex){
                     ex.printStackTrace();
                 }
-                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
-                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
             }
         };
         btn4.addActionListener(compraGuitar); //Añadimos al botón 4 el método Comprar Guitarra
@@ -542,13 +562,19 @@ public class Guitarras extends JFrame{
                 try{
                     ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
                     String g = "Ibanez XPTB720"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
-                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
-                    btn5.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                    String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    if (nombre != null) {
+                        if(nombre.length()>0){ //Si no introducimos nada en el JOptionPane no podremos comprar la guitarra
+                            compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                            btn5.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                            JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
                 }catch (SQLException ex){
                     ex.printStackTrace();
                 }
-                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
-                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
             }
         };
         btn5.addActionListener(compraGuitar); //Añadimos al botón 5 el método Comprar Guitarra
@@ -590,13 +616,19 @@ public class Guitarras extends JFrame{
                 try{
                     ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
                     String g = "Gibson Explorer Antique Natural"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
-                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
-                    btn6.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                    String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    if (nombre != null) {
+                        if(nombre.length()>0){ //Si no introducimos nada en el JOptionPane no podremos comprar la guitarra
+                            compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                            btn6.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                            JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
                 }catch (SQLException ex){
                     ex.printStackTrace();
                 }
-                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
-                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
             }
         };
         btn6.addActionListener(compraGuitar); //Añadimos al botón 6 el método Comprar Guitarra
@@ -638,13 +670,19 @@ public class Guitarras extends JFrame{
                 try{
                     ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
                     String g = "Yamaha F325 Acoustic"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
-                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
-                    btn7.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                    String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    if (nombre != null) {
+                        if(nombre.length()>0){ //Si no introducimos nada en el JOptionPane no podremos comprar la guitarra
+                            compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                            btn7.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                            JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
                 }catch (SQLException ex){
                     ex.printStackTrace();
                 }
-                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
-                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
             }
         };
         btn7.addActionListener(compraGuitar); //Añadimos al botón 7 el método Comprar Guitarra
@@ -686,13 +724,19 @@ public class Guitarras extends JFrame{
                 try{
                     ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
                     String g = "ESP LTD GL-200MT"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
-                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
-                    btn8.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                    String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    if (nombre != null) {
+                        if(nombre.length()>0){ //Si no introducimos nada en el JOptionPane no podremos comprar la guitarra
+                            compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                            btn8.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                            JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
                 }catch (SQLException ex){
                     ex.printStackTrace();
                 }
-                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
-                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
             }
         };
         btn8.addActionListener(compraGuitar); //Añadimos al botón 8 el método Comprar Guitarra
@@ -734,13 +778,19 @@ public class Guitarras extends JFrame{
                 try{
                     ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
                     String g = "Fender Malibu Acoustic"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
-                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
-                    btn9.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                    String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    if (nombre != null) {
+                        if(nombre.length()>0){ //Si no introducimos nada en el JOptionPane no podremos comprar la guitarra
+                            compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                            btn9.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                            JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
                 }catch (SQLException ex){
                     ex.printStackTrace();
                 }
-                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
-                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
             }
         };
         btn9.addActionListener(compraGuitar); //Añadimos al botón 9 el método Comprar Guitarra
@@ -782,13 +832,19 @@ public class Guitarras extends JFrame{
                 try{
                     ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
                     String g = "ESP LTD GH-200 BLK"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
-                    compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
-                    btn10.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                    String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                    if (nombre != null) {
+                        if(nombre.length()>0){ //Si no introducimos nada en el JOptionPane no podremos comprar la guitarra
+                            compramosGuitar.ComprarGuitarra(g); //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
+                            btn10.setEnabled(false); //Desactivamos el botón una vez hayamos comprado la guitarra para que no se pueda comprar de nuevo
+                            JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Los campos no deben estar vacíos", "¡Atención!", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
                 }catch (SQLException ex){
                     ex.printStackTrace();
                 }
-                JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra
-                JOptionPane.showMessageDialog(null, "¡Compra realizada con éxito!");
             }
         };
         btn10.addActionListener(compraGuitar); //Añadimos al botón 10 el método Comprar Guitarra

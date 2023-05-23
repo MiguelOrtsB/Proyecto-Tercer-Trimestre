@@ -144,7 +144,7 @@ public class Login extends JFrame {
                 try {
                     boolean encontrado = false; //Variable para el mensaje de "usuario incorrecto"
                     ResultSet usuarios = obtenerUsuarioBaseDeDatos.ObtenerUsuarioBBDD(); // Recupera los usuario de nuestra BBDD
-                    while (usuarios.next()) { //Recorre los usuarios que acabamos de recuperar
+                    while (usuarios.next() && !encontrado) { //Recorre los usuarios que acabamos de recuperar
                         String usuarioBBDD = usuarios.getString("Nombre_usuario"); //Recupera y asigna en una variable el ussername
                         String passBBDD = usuarios.getString("contraseña"); //Recupera y asigna en una variable el password
                         System.out.println(usuarioBBDD + "\t" + passBBDD);
@@ -154,6 +154,7 @@ public class Login extends JFrame {
                             Principal principal = new Principal();
                             principal.setVisible(true);
                             encontrado = true; //Cambia el booleano a true y así no entra en el if "no encontrado" y no salte el mensaje
+                            System.out.println("Bienvenido: " + usuarioBBDD);
                         }
                     }
                     if(!encontrado) { //Este if está fuera del bucle while para que por cada vuelta del bucle no nos salte el mensaje
