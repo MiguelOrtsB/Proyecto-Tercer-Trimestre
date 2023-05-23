@@ -173,6 +173,7 @@ public class Filtrar extends JFrame{
                 {"Fender Malibu Acoustic", "310.0", "Acústica", "--"},
                 {"Fender Kurt Cobain Jaguar", "1555.0", "Eléctrica", "--"},
                 {"Fender Telecaster Custom 60", "2599.0", "Eléctrica", "--"},
+                {"Gibson SG Standard 61", "1890.0", "Eléctrica", "--"},
                 {"Gibson Explorer Antique Natural", "1899.0", "Eléctrica", "--"},
                 {"Gibson Slash Les Paul Standard", "2699.0", "Eléctrica", "--"},
                 {"Gibson 1960 Hummingbird", "4980.0", "Acústica", "--"},
