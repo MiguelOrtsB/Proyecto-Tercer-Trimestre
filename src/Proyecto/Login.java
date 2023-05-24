@@ -163,7 +163,7 @@ public class Login extends JFrame {
                         contraseña.setText("");
                     }
                 } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
+                    System.err.println("Error de entrada/salida: " + ex.getMessage()); //En caso de error muestra lo que ha ocurrido
                 }
             }
         };
