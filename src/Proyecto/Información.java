@@ -9,32 +9,35 @@ import java.net.URL;
 
 public class Información extends JFrame {
 
+    // INICIALIZAMOS LAS CLASES
+
     private JPanel panelInfo;
     private Image imagen;
     private JButton back;
     FondoPanel fondoPanelcillo = new FondoPanel();
 
-    public Información (){
+    public Información (){ //Constructor principal
 
         // FRAME
 
-        fondoPanelcillo.setLayout(null);
-        setSize(1280, 720);
-        setContentPane(fondoPanelcillo);
+        fondoPanelcillo.setLayout(null); //Deshabilitamos el diseño por defecto para poder posicionar los widgets en el panel libremente
+        setSize(1280, 720); //Tamaño del frame
+        setContentPane(fondoPanelcillo); //Método para que el Frame contenga el Panel
         Border border = BorderFactory.createLineBorder(Color.BLACK, 4); //Diseñamos el borde del Panel (color y grosor)
-        fondoPanelcillo.setBorder(border);
-        setLocationRelativeTo(null);
-        setResizable(false);
+        fondoPanelcillo.setBorder(border); //Aplicamos el borde
+        setLocationRelativeTo(null); //Coloca el Frame justo en el centro de la pantalla
+        setResizable(false); //No deja al usuario redimensionar la ventana
         setTitle("\uD834\uDD1E Green Devil MusicStore \uD834\uDD1E"); // Título del Frame
         Image iconImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("Imagenes/Green-Devil-988x1024.png"));
         setIconImage(iconImage); // Establecemos el icono de la ventana
-        initComponentesInfo();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        initComponentesInfo(); //Iniciamos los componentes
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Cerramos como operación por defecto
     }
 
     public void initComponentesInfo(){
 
-        //colocarPanelInfo();
+        //MÉTODO PARA INCIAR TODOS LOS COMPONENTES EN EL FRAME
+
         colocarLabelsInfo();
         colocarBotonesInfo();
         setVisible(true);
@@ -49,6 +52,8 @@ public class Información extends JFrame {
     }*/
 
     public void colocarLabelsInfo(){
+
+        // LABELS PARA EL TÍTULO Y EL TEXTO DEL PANEL
 
         JLabel who = new JLabel(" ¿Quiénes somos?");
         who.setFont(new Font("Impact", Font.PLAIN, 40));
@@ -103,6 +108,8 @@ public class Información extends JFrame {
 
     private void colocarBotonesInfo(){
 
+        // BOTÓN PARA VOLVER HACIA ATRÁS
+
         back = new JButton("↶Atrás");
         back.setFont(new Font("Dialog", Font.PLAIN, 18));
         back.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -115,12 +122,13 @@ public class Información extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 setVisible(false); //Para cerrar la ventana de Información una vez hagamos click en el botón de "Atrás"
-                new Principal().setVisible(true);
+                new Principal().setVisible(true); //Instanciamos y hacemos visible de nuevo la ventana principal de la app
             }
         };
         back.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "¿Quiénes somos?"
     }
 
+    // MÉTODO DENTRO DE LA CLASE PARA ESTABLECER UNA IMÁGEN COMO FONDE DE PANTALLA
     class FondoPanel extends JPanel{
         @Override
         public void paint(Graphics g){

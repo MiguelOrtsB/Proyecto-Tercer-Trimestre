@@ -14,6 +14,8 @@ import net.proteanit.sql.DbUtils;
 
 public class Filtrar extends JFrame{
 
+    // INICIALIZAMOS LAS DIFERENTES CLASES (LABELS, BOTONES, COMBOBOX, TABLE...)
+
     private JPanel panelFiltrar;
     private JLabel labelLogo;
     private JButton atras;
@@ -23,11 +25,12 @@ public class Filtrar extends JFrame{
     private JTable guitarList;
 
     //CONEXIONES
+
     private MySQLConnection SQL = new MySQLConnection();
 
     private Connection conn = SQL.conectarMySQL();
 
-    public Filtrar(){
+    public Filtrar(){ //Constructor
 
         // FRAME
 
@@ -56,12 +59,12 @@ public class Filtrar extends JFrame{
 
         // PANEL
 
-        panelFiltrar = new JPanel();
-        panelFiltrar.setLayout(null);
-        this.getContentPane().add(panelFiltrar);
-        panelFiltrar.setBackground(new Color(0xDFFFDF));
+        panelFiltrar = new JPanel(); //Creamos el Panel
+        panelFiltrar.setLayout(null); //Deshabilitamos el diseño por defecto para poder posicionar los widgets en el panel libremente
+        this.getContentPane().add(panelFiltrar); //Con "this" nos referimos al Frame, "getContent" su contenido y add para añadir el Panel
+        panelFiltrar.setBackground(new Color(0xDFFFDF)); //Color de fondo
         Border border = BorderFactory.createLineBorder(new Color(0x049B04), 4); //Diseñamos el borde del Panel (color y grosor)
-        panelFiltrar.setBorder(border);
+        panelFiltrar.setBorder(border); //Añadimos el borde anterior
     }
 
     private void colocarLabelsFiltrar(){
@@ -115,7 +118,7 @@ public class Filtrar extends JFrame{
         };
        Filtro.addActionListener(filtrarGuitar);
 
-        // FILTRAR POR PRECIOS
+        // FILTRAR POR PRECIOS (NOS DEVOLVERÁ UNO DE LAS OPCIONES)
         ActionListener filtrarPrecios = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -146,7 +149,7 @@ public class Filtrar extends JFrame{
                 }
             }
         };
-        FiltroPrecio.addActionListener(filtrarPrecios);
+        FiltroPrecio.addActionListener(filtrarPrecios); //Añadimos el método Actionlister al Combobox
 
         // FILTRAR POR TIPO
         ActionListener filtrarTipoGuitarra = new ActionListener() {
@@ -185,14 +188,14 @@ public class Filtrar extends JFrame{
         String column[]={"Nombre Guitarra","Precio","Tipo","Disponibilidad"};
 
         guitarList = new JTable(data, column); //Creamos la tabla
-        guitarList.setBackground(new java.awt.Color(210, 210, 210));
-        guitarList.setBounds(130, 220, 1000, 420);
-        guitarList.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 15));
+        guitarList.setBackground(new java.awt.Color(210, 210, 210)); //Color de fondo
+        guitarList.setBounds(130, 220, 1000, 420); //Posicionamiento y tamaña en el Panel
+        guitarList.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 15)); //Tipo de fuente
         Border borderTable = BorderFactory.createLineBorder(Color.black, 1); //Diseñamos el borde del Panel (color y grosor)
         guitarList.setBorder(borderTable);
         panelFiltrar.add(guitarList);
 
-        //LABELS VARIOS
+        //LABELS VARIOS (INFORMACIÓN ACERCA DE LOS FILTROS Y LA TABLA)
 
         JLabel filtrar = new JLabel("Filtrar Marca:");
         filtrar.setFont(new Font("Impact", Font.ROMAN_BASELINE,15));
@@ -257,14 +260,10 @@ public class Filtrar extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                setVisible(false); //Para cerrar la ventana de Guitarras una vez hagamos click en el botón de "Atrás"
-                new Principal().setVisible(true);
+                setVisible(false); //Para cerrar la ventana de Buscar una vez hagamos click en el botón de "Atrás"
+                new Principal().setVisible(true); //Instanciamos y hacemos visible de nuevo la ventana principal de la app
             }
         };
         atras.addActionListener(accederPrincipal);
-    }
-
-    public static void main(String[] args) {
-        Filtrar filtrar = new Filtrar();
     }
 }

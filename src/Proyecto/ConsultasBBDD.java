@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class ConsultasBBDD {
 
-    // Instancias la clase que hemos creado anteriormente
+    // Instanciamos la clase que creada anteriormente
     private MySQLConnection SQL = new MySQLConnection();
 
     // Llamas al método que tiene la clase y te devuelve una conexión

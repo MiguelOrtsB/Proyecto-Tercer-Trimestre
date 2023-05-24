@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MySQLConnection {
+
     // Librería de MySQL
     public String driver = "com.mysql.cj.jdbc.Driver";
     // Nombre de la base de datos

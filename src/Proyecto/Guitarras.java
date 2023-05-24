@@ -11,6 +11,8 @@ import java.sql.SQLException;
 
 public class Guitarras extends JFrame{
 
+    // INICIALIZAMOS LAS CLASES
+
     private JPanel panelGuitarras;
     private JLabel labelLogo;
     private JButton atras;
@@ -26,19 +28,18 @@ public class Guitarras extends JFrame{
     private JButton btn10;
 
 
-    public Guitarras(){
+    public Guitarras(){ //Constructor
 
         // FRAME
 
-        //setExtendedState(MAXIMIZED_BOTH);
-        setSize(1280, 720);
-        setLocationRelativeTo(null);
-        setResizable(false);
+        setSize(1280, 720); //Tamaño del Frame
+        setLocationRelativeTo(null); //Coloca el Frame justo en el centro de la pantalla
+        setResizable(false); //No deja al usuario redimensionar la ventana
         setTitle("\uD834\uDD1E Green Devil MusicStore \uD834\uDD1E"); // Título del Frame
         Image iconImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("Imagenes/Green-Devil-988x1024.png"));
         setIconImage(iconImage); // Establecemos el icono de la ventana
-        initComponents();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        initComponents(); //Iniciamos los componentes (botones, labels, etc)
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Cerrar como operación por defecto
     }
 
     private void initComponents(){
@@ -56,21 +57,21 @@ public class Guitarras extends JFrame{
 
         // PANEL
 
-        panelGuitarras = new JPanel();
-        panelGuitarras.setLayout(null);
-        this.getContentPane().add(panelGuitarras);
-        panelGuitarras.setBackground(new Color(0xDFFFDF));
+        panelGuitarras = new JPanel(); //Creamos el panel
+        panelGuitarras.setLayout(null); //Negamos que sea un Layout el que controle nuestro Panel
+        this.getContentPane().add(panelGuitarras); //Método para añadirlo al panel
+        panelGuitarras.setBackground(new Color(0xDFFFDF)); //Le aplicamos un color de fondo
         Border border = BorderFactory.createLineBorder(new Color(0x049B04), 4); //Diseñamos el borde del Panel (color y grosor)
-        panelGuitarras.setBorder(border);
+        panelGuitarras.setBorder(border); //Método donde aplicamos el borde diseñado
     }
 
     private void colocarLabelsGuitarras(){
 
         // IMÁGEN LOGO - GUITARRAS
 
-        URL urlLogo = Proyecto.Login.class.getResource("Imagenes/Green-Devil-988x1024.png");
-        ImageIcon image = new ImageIcon(urlLogo);
-        Icon icon = new ImageIcon(image.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+        URL urlLogo = Proyecto.Login.class.getResource("Imagenes/Green-Devil-988x1024.png"); //URL de la imagen que queremos
+        ImageIcon image = new ImageIcon(urlLogo); //Icono al que le asignamos la URL de la imágen
+        Icon icon = new ImageIcon(image.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)); //Escalado de la imágen
         labelLogo = new JLabel(); //Label que contendrá el logo de la página
         labelLogo.setIcon(icon); //Le añadimos la imagen del logo
         labelLogo.setBounds(30, 5, 160, 120); //Establecemos su ubicación en el Panel
@@ -78,25 +79,25 @@ public class Guitarras extends JFrame{
 
         // GUITARRA 1 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
 
-        URL urlGuitarra = Proyecto.Login.class.getResource("Imagenes/Gibson_LP_Classic.png");
-        ImageIcon imagenGuitarra = new ImageIcon(urlGuitarra);
-        Icon iconGuitarra = new ImageIcon(imagenGuitarra.getImage().getScaledInstance(110, 220, Image.SCALE_SMOOTH));
-        JLabel guitarra1 = new JLabel();
+        URL urlGuitarra = Proyecto.Login.class.getResource("Imagenes/Gibson_LP_Classic.png"); //URL de la imagen que queremos
+        ImageIcon imagenGuitarra = new ImageIcon(urlGuitarra); //Icono al que le asignamos la URL de la imágen
+        Icon iconGuitarra = new ImageIcon(imagenGuitarra.getImage().getScaledInstance(110, 220, Image.SCALE_SMOOTH)); //Escalado de la imágen
+        JLabel guitarra1 = new JLabel(); //Creamos el label que contendrá la imágen anterior
         guitarra1.setIcon(iconGuitarra);
-        guitarra1.setBounds(72, 95, 150, 300);
+        guitarra1.setBounds(72, 95, 150, 300); //Posición y tamaño del label en el Panel
         panelGuitarras.add(guitarra1);
-        JLabel guit1 = new JLabel("Gibson Slash Les Paul Standard");
+        JLabel guit1 = new JLabel("Gibson Slash Les Paul Standard"); //Label para el nombre de la guitarra
         guit1.setBounds(35, 340, 300, 50);
         panelGuitarras.add(guit1);
-        JLabel prec1= new JLabel("2699€");
+        JLabel prec1= new JLabel("2699€"); //Label para el precio de la guitarra
         prec1.setBounds(55, 363, 50, 50);
         prec1.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 18));
         panelGuitarras.add(prec1);
-        btn1 = new JButton("Comprar");
+        btn1 = new JButton("Comprar"); //Botón para realizar la compra de la guitarra
         btn1.setBounds(115, 380, 85, 20);
-        btn1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btn1.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Añadimos un estilo de cursos cuando nos posicionamos encima del botón
         panelGuitarras.add(btn1);
-        comprarGuitarra1();
+        comprarGuitarra1(); //Añadimos la función para la compra de la primera guitarra
 
         // GUITARRA 2 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
 
@@ -311,6 +312,7 @@ public class Guitarras extends JFrame{
     }
 
     private void comprarGuitarra1(){
+
         /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 1 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
         AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
@@ -365,6 +367,7 @@ public class Guitarras extends JFrame{
     }
 
     private void comprarGuitarra2(){
+
         /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 2 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
         AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
@@ -419,6 +422,7 @@ public class Guitarras extends JFrame{
     }
 
     private void comprarGuitarra3(){
+
         /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 3 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
         AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
@@ -473,6 +477,7 @@ public class Guitarras extends JFrame{
     }
 
     private void comprarGuitarra4(){
+
         /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 4 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
         AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
@@ -527,6 +532,7 @@ public class Guitarras extends JFrame{
     }
 
     private void comprarGuitarra5(){
+
         /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 5 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
         AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
@@ -581,6 +587,7 @@ public class Guitarras extends JFrame{
     }
 
     private void comprarGuitarra6(){
+
         /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 6 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
         AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
@@ -635,6 +642,7 @@ public class Guitarras extends JFrame{
     }
 
     private void comprarGuitarra7(){
+
         /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 7 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
         AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
@@ -689,6 +697,7 @@ public class Guitarras extends JFrame{
     }
 
     private void comprarGuitarra8(){
+
         /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 8 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
         AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
@@ -743,6 +752,7 @@ public class Guitarras extends JFrame{
     }
 
     private void comprarGuitarra9(){
+
         /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 9 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
         AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
@@ -797,6 +807,7 @@ public class Guitarras extends JFrame{
     }
 
     private void comprarGuitarra10(){
+
         /* CON EL SIGUIENTE TRY/CATCH COMPROBAMOS LA DISPONIBILIDAD DE LAS GUITARRA 10 UNA VEZ ENTREMOS EN LA VENTANA DE "GUITARRAS"
         AUTOMÁTICAMENTE. DE ESTA MANERA, SI AL RECORRER LA TABLA VEMOS QUE LA DISPONIBILIDAD ES "0", NO NOS DEJARÁ LA OPCIÓN DE
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
@@ -852,19 +863,19 @@ public class Guitarras extends JFrame{
 
     private void colocarBotonesGuitarras(){
 
-        atras = new JButton("↶Atrás");
-        atras.setFont(new Font("Dialog", Font.PLAIN, 18));
-        atras.setAlignmentX(Component.CENTER_ALIGNMENT);
-        atras.setBounds(1130, 45, 100, 35);
-        atras.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        panelGuitarras.add(atras);
+        atras = new JButton("↶Atrás"); //Creamos el botón que volvera hacia atrás a la ventana principal de la app
+        atras.setFont(new Font("Dialog", Font.PLAIN, 18)); //Le asignamos un tipo de fuente
+        atras.setAlignmentX(Component.CENTER_ALIGNMENT); //Lo alineamos en el centro
+        atras.setBounds(1130, 45, 100, 35); //Método para la posición y tamañana del botón en el Panel
+        atras.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Añadimos un estilo de cursos cuando nos posicionamos encima del botón
+        panelGuitarras.add(atras); //Añadimos el botón al Panel
 
         ActionListener accederRegister = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 setVisible(false); //Para cerrar la ventana de Guitarras una vez hagamos click en el botón de "Atrás"
-                new Principal().setVisible(true);
+                new Principal().setVisible(true); //Hacemos visible de nuevo la ventana principal
             }
         };
         atras.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "guitarras"

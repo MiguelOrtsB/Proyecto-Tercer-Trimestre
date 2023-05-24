@@ -8,6 +8,8 @@ import java.net.URL;
 
 public class Principal extends JFrame {
 
+    // INCIALIZAMOS LAS CLASES
+
     private JPanel panelPrincipal;
     private JMenuBar navbar;
     private JMenu menu1;
@@ -19,15 +21,15 @@ public class Principal extends JFrame {
 
         // FRAME
 
-        setSize(1280, 720);
-        setLocationRelativeTo(null);
-        setResizable(false);
+        setSize(1280, 720); //Tamaño del Frame
+        setLocationRelativeTo(null); //Coloca el Frame justo en el centro de la pantalla
+        setResizable(false); //No deja al usuario redimensionar la ventana
         //setExtendedState(MAXIMIZED_BOTH); //La ventana ocupa todoo el ancho de la pantalla
         setTitle("\uD834\uDD1E Green Devil MusicStore \uD834\uDD1E"); // Título del Frame
         Image iconImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("Imagenes/Green-Devil-988x1024.png"));
         setIconImage(iconImage); // Establecemos el icono de la ventana
-        initComponents();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        initComponents(); //Iniciamos los componentes
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Cerramos como operación por defecto
     }
 
     private void initComponents(){

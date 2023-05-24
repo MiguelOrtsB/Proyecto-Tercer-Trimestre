@@ -176,8 +176,8 @@ public class Login extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 setVisible(false); //Para cerrar la ventana de Login una vez hagamos click en el botón de Registro
-                Register registro = new Register();
-                registro.setVisible(true);
+                Register registro = new Register(); //Instanciamos la ventana de Registro
+                registro.setVisible(true); //La hacemos visible
             }
         };
         registerButton.addActionListener(accederRegister);
