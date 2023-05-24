@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javazoom.jlgui.basicplayer.BasicPlayer;
+import java.io.File;
 
 public class Guitarras extends JFrame{
 
@@ -26,6 +28,8 @@ public class Guitarras extends JFrame{
     private JButton btn8;
     private JButton btn9;
     private JButton btn10;
+    private JButton botonAudio;
+    private BasicPlayer basicPlayer;
 
 
     public Guitarras(){ //Constructor
@@ -49,6 +53,7 @@ public class Guitarras extends JFrame{
         colocarPanelGuitarras();
         colocarLabelsGuitarras();
         colocarBotonesGuitarras();
+        //reproduciraudio(reproduciraudio);
 
         setVisible(true);
     }
@@ -76,6 +81,7 @@ public class Guitarras extends JFrame{
         labelLogo.setIcon(icon); //Le añadimos la imagen del logo
         labelLogo.setBounds(30, 5, 160, 120); //Establecemos su ubicación en el Panel
         panelGuitarras.add(labelLogo); //Añadimos el label al Panel
+
 
         // GUITARRA 1 (CON SU NOMBRE, IMÁGEN, PRECIO, ETC)
 
@@ -860,5 +866,30 @@ public class Guitarras extends JFrame{
             }
         };
         atras.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "guitarras"
+
+
     }
+    // (???????)
+   /* public void reproduciraudio(String file){
+
+        botonAudio = new JButton("Reproducir");
+        botonAudio.setBounds(500, 50, 100, 50);
+        panelGuitarras.add(botonAudio);
+
+        try {
+            BasicPlayer sonido = new BasicPlayer();
+            sonido.open(new File(file));
+            sonido.play();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        ActionListener reproducirAudio = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reproduciraudio("Musica/youtube_VjV4ChAkrbA_audio.mp3");
+            }
+        };
+        botonAudio.addActionListener(reproducirAudio);
+    }*/
 }

@@ -100,6 +100,7 @@ public class ConsultasBBDD implements AutoCloseable { //Autocloseable cierra los
 
     // MÉTODO PARA CERRAR EL FLUJO DE ENTRADA Y LIBERAR LOS RECURSOS DEL SISTEMA ASOCIADOS A ESTE FLUJO
     // (A través del método try-with-resource simplemente introduciendo el recurso que queremos liberar dentro del try())
+
     @Override
     public void close(){
         System.out.println("Conexión con recursos cerrada correctamente");
