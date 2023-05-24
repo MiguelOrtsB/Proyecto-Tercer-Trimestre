@@ -11,10 +11,6 @@ public class ConsultasBBDD {
     // Llamas al método que tiene la clase y te devuelve una conexión
     private Connection conn = SQL.conectarMySQL();
 
-    // Query que usarás para hacer lo que necesites
-    //private String query = "update guitarras set disponibilidad = true where Nombre_guitarra = 'Ibanez XPTB720'";
-    //private String query = "select * from guitarras";
-
     // QUERY PARA HACER EFECTIVA LA COMPRA DE LAS GUITARRAS
 
     public void ComprarGuitarra(String guitarra) throws SQLException {

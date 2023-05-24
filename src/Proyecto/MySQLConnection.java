@@ -21,6 +21,8 @@ public class MySQLConnection {
     // Clave de usuario
     public String password = "";
 
+    // CREAMOS EL MÉTODO PARA LA CONEXIÓN
+
     public Connection conectarMySQL() {
         Connection conn = null;
 
