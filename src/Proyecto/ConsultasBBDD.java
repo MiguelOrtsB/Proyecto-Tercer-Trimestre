@@ -3,7 +3,7 @@ package Proyecto;
 import javax.swing.*;
 import java.sql.*;
 
-public class ConsultasBBDD {
+public class ConsultasBBDD implements AutoCloseable { //Autocloseable cierra los recursos automáticamente sin necesidad de "finally"
 
     // Instanciamos la clase que creada anteriormente
     private MySQLConnection SQL = new MySQLConnection();
@@ -29,7 +29,7 @@ public class ConsultasBBDD {
 
     // QUERY PARA HACER EFECTIVO EL REGISTRO DE LOS USUARIOS (PASAMOS COMO PARÁMETRO LO INTRODUCIDO POR LOS USUARIOS EN LOS TEXTFIELDS)
 
-    public boolean RegistrarUsuario(String user, String mail, String password) throws SQLException {
+    public boolean RegistrarUsuario(String user, String mail, String password) throws SQLException, RuntimeException {
 
         //Creamos la consulta dentro de una variable
 
@@ -48,7 +48,6 @@ public class ConsultasBBDD {
         } catch (SQLException e) {
             e.printStackTrace(); //En caso de error muestra lo que ha ocurrido
         }
-
         return true; //Este return en realidad nunca llega a ejecutarse, puesto que será en el try donde termine la ejecucón.
     }
 
@@ -97,5 +96,12 @@ public class ConsultasBBDD {
             e.printStackTrace(); //En caso de error muestra lo que ha ocurrido
         }
         return null;
+    }
+
+    // MÉTODO PARA CERRAR EL FLUJO DE ENTRADA Y LIBERAR LOS RECURSOS DEL SISTEMA ASOCIADOS A ESTE FLUJO
+    // (A través del método try-with-resource simplemente introduciendo el recurso que queremos liberar dentro del try())
+    @Override
+    public void close(){
+        System.out.println("Conexión con recursos cerrada correctamente");
     }
 }

@@ -139,11 +139,11 @@ public class Login extends JFrame {
 
                 String usuarioInput = nombreUsuario.getText(); //Guardamos en una variable el nombre de usuario introducido en el Login
                 String passwordInput= contraseña.getText(); //Guardamos en una variable la contraseña introducida en el Login por el user
-                ConsultasBBDD obtenerUsuarioBaseDeDatos = new ConsultasBBDD(); //Instaciamos la clase donde tenemos todas las consultas
 
-                try {
+                //Instaciamos la clase donde tenemos todas las consultas dentro del try para que se cierre sola una vez ejecutada
+                try (ConsultasBBDD obtenerUsuarioBaseDeDatos = new ConsultasBBDD();
+                     ResultSet usuarios = obtenerUsuarioBaseDeDatos.ObtenerUsuarioBBDD()){ //Recupera los usuario de nuestra BBDD
                     boolean encontrado = false; //Variable para el mensaje de "usuario incorrecto"
-                    ResultSet usuarios = obtenerUsuarioBaseDeDatos.ObtenerUsuarioBBDD(); // Recupera los usuario de nuestra BBDD
                     while (usuarios.next() && !encontrado) { //Recorre los usuarios que acabamos de recuperar
                         String usuarioBBDD = usuarios.getString("Nombre_usuario"); //Recupera y asigna en una variable el ussername
                         String passBBDD = usuarios.getString("contraseña"); //Recupera y asigna en una variable el password
@@ -163,7 +163,7 @@ public class Login extends JFrame {
                         contraseña.setText("");
                     }
                 } catch (SQLException ex) {
-                    System.err.println("Error de entrada/salida: " + ex.getMessage()); //En caso de error muestra lo que ha ocurrido
+                    System.err.println("Error de entrada / salida: " + ex.getMessage()); //En caso de error muestra lo que ha ocurrido
                 }
             }
         };

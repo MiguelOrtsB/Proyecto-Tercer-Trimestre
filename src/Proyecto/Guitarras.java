@@ -318,9 +318,8 @@ public class Guitarras extends JFrame{
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
          */
 
-        try{
-            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
-            ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
+        try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
+            ResultSet guitarras = compramosGuitar.obtenerDisponibilidad(); //Comprueba la disponibilidad de nuestra BBDD
             String g = "Gibson Slash Les Paul Standard"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
 
             while(guitarras.next()){
@@ -337,7 +336,7 @@ public class Guitarras extends JFrame{
                 }
             }
         }catch (SQLException ex){
-            ex.printStackTrace();
+            System.err.println("Error de entrada / salida: " + ex.getMessage()); //En caso de error muestra lo que ha ocurrido
         }
 
         // EVENTO ACTIONLISTENER (COMPRAR GUITARRA 1)
@@ -345,8 +344,8 @@ public class Guitarras extends JFrame{
         ActionListener compraGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                //Llamamos a la clase donde se encuentran las consultas
+                try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){
                     String g = "Gibson Slash Les Paul Standard"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra:"); //Introducir tarjeta para compra
                     if (nombre != null) {
@@ -359,7 +358,7 @@ public class Guitarras extends JFrame{
                         }
                     }
                 }catch (SQLException ex){
-                    ex.printStackTrace();
+                    System.err.println("Error de entrada / salida: " + ex.getMessage()); //En caso de error muestra lo que ha ocurrido
                 }
             }
         };
@@ -373,8 +372,7 @@ public class Guitarras extends JFrame{
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
          */
 
-        try{
-            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+        try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
             ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
             String g = "Jackson SL3X DX"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
 
@@ -400,8 +398,7 @@ public class Guitarras extends JFrame{
         ActionListener compraGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
                     String g = "Jackson SL3X DX"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
                     if (nombre != null) {
@@ -428,8 +425,7 @@ public class Guitarras extends JFrame{
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
          */
 
-        try{
-            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+        try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
             ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
             String g = "Fender Telecaster Custom 60"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
 
@@ -455,8 +451,7 @@ public class Guitarras extends JFrame{
         ActionListener compraGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
                     String g = "Fender Telecaster Custom 60"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
                     if (nombre != null) {
@@ -483,8 +478,7 @@ public class Guitarras extends JFrame{
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
          */
 
-        try{
-            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+        try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
             ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
             String g = "EVH Striped Series"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
 
@@ -510,8 +504,7 @@ public class Guitarras extends JFrame{
         ActionListener compraGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
                     String g = "EVH Striped Series"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
                     if (nombre != null) {
@@ -538,8 +531,7 @@ public class Guitarras extends JFrame{
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
          */
 
-        try{
-            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+        try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
             ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
             String g = "Ibanez XPTB720"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
 
@@ -565,8 +557,7 @@ public class Guitarras extends JFrame{
         ActionListener compraGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
                     String g = "Ibanez XPTB720"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
                     if (nombre != null) {
@@ -593,8 +584,7 @@ public class Guitarras extends JFrame{
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
          */
 
-        try{
-            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+        try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
             ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
             String g = "Gibson Explorer Antique Natural"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
 
@@ -620,8 +610,7 @@ public class Guitarras extends JFrame{
         ActionListener compraGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
                     String g = "Gibson Explorer Antique Natural"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
                     if (nombre != null) {
@@ -648,8 +637,7 @@ public class Guitarras extends JFrame{
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
          */
 
-        try{
-            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+        try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
             ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
             String g = "Yamaha F325 Acoustic"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
 
@@ -675,8 +663,7 @@ public class Guitarras extends JFrame{
         ActionListener compraGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
                     String g = "Yamaha F325 Acoustic"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
                     if (nombre != null) {
@@ -703,8 +690,7 @@ public class Guitarras extends JFrame{
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
          */
 
-        try{
-            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+        try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
             ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
             String g = "ESP LTD GL-200MT"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
 
@@ -730,8 +716,7 @@ public class Guitarras extends JFrame{
         ActionListener compraGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
                     String g = "ESP LTD GL-200MT"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
                     if (nombre != null) {
@@ -758,8 +743,7 @@ public class Guitarras extends JFrame{
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
          */
 
-        try{
-            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+        try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
             ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
             String g = "Fender Malibu Acoustic"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
 
@@ -785,8 +769,7 @@ public class Guitarras extends JFrame{
         ActionListener compraGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
                     String g = "Fender Malibu Acoustic"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
                     if (nombre != null) {
@@ -813,8 +796,7 @@ public class Guitarras extends JFrame{
         COMPRARLA, YA QUE EL BOTÓN APARECERÁ DESACTIVADO (ALGO ASÍ COMO PERSISTENCIA DE DATOS).
          */
 
-        try{
-            ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+        try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
             ResultSet guitarras = compramosGuitar.obtenerDisponibilidad();
             String g = "ESP LTD GH-200 BLK"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
 
@@ -840,8 +822,7 @@ public class Guitarras extends JFrame{
         ActionListener compraGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    ConsultasBBDD compramosGuitar = new ConsultasBBDD(); //Llamamos a la clase donde se encuentran las consultas
+                try(ConsultasBBDD compramosGuitar = new ConsultasBBDD()){ //Llamamos a la clase donde se encuentran las consultas
                     String g = "ESP LTD GH-200 BLK"; //Variable que almacena el nombre de guitarra que pasamos como parámetro
                     String nombre = JOptionPane.showInputDialog("Introduce tu número de tarjeta para realizar la compra"); //Introducir tarjeta para compra; //Accedemos al método de la clase Consultas y le pasamos el nombre de la guitarra
                     if (nombre != null) {

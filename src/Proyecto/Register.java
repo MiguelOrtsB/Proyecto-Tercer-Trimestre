@@ -176,9 +176,8 @@ public class Register extends JFrame {
         ActionListener registrado = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                try {
-                    ConsultasBBDD querys = new ConsultasBBDD(); //Instanciamos la clase de ConsultasBBDD
+                //Instanciamos la clase de ConsultasBBDD
+                try (ConsultasBBDD querys = new ConsultasBBDD()){
                     String u = nombreUsuario.getText(); //Almacenamos en una variable el nombre de usuario introducido
                     String c = correo.getText(); //Almacenamos en una variable el correo introducido
                     String p = contraseña.getText(); //Almacenamos en una variable la contraseña introducido
@@ -190,7 +189,7 @@ public class Register extends JFrame {
                         login.setVisible(true); //Y abrimos nuevamente la ventana de Login una vez que el usuario se haya registrado
                     }
                 } catch (SQLException exception) {
-                    exception.printStackTrace(); //En caso de error muestra lo que ha ocurrido
+                    System.err.println("Error de entrada / salida: " + exception.getMessage()); //En caso de error muestra lo que ha ocurrido
                 }
             }
         };

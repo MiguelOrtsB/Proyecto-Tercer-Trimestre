@@ -323,8 +323,8 @@ public class Principal extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 setVisible(false); //Para cerrar la ventana de Principal una vez hagamos click en el botón de Guitarras
-                Guitarras guitarras = new Guitarras();
-                guitarras.setVisible(true);
+                Guitarras guitarras = new Guitarras(); //Creamos la siguiente ventada de Guitarras
+                guitarras.setVisible(true); //Hacemos visible la ventana de Guitarras
             }
         };
         menuguitarras.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "guitarras"
