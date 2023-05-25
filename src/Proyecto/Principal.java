@@ -226,7 +226,7 @@ public class Principal extends JFrame {
         menu11.addMouseListener(mouseAction); //Añadimos los eventos de ratón de más abajo al Menu11
         navbar.add(menu11); //Añadimos el Menu al MenuBar
 
-        menu12 = new JMenu("Info"); //Añadimos el Menu1 que va encima del MenuBar y que abrirá el desplegable de opciones
+        menu12 = new JMenu("Acerca de"); //Añadimos el Menu1 que va encima del MenuBar y que abrirá el desplegable de opciones
         menu12.setFont(new Font("Cinzel", Font.PLAIN,18)); //Le aplicamos tipo de fuente, color y tamaño
         menu12.setForeground(Color.WHITE); //Color de la fuente
         menu12.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Cambia el tipo de cursor cuando nos posamos encima
@@ -375,4 +375,8 @@ public class Principal extends JFrame {
             menu1.setSelected(false);
         };
     };
+
+    public static void main(String[] args) {
+        Principal p = new Principal();
+    }
 }
