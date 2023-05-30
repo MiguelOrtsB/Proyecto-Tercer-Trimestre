@@ -84,7 +84,7 @@ public class Información extends JFrame {
                 "Desde entonces, somos la tienda de confiaza para mucha gente, es por esta razón que<br>" +
                 "nos consideramos expertos principalmente en instrumentos de cuerda <strong><i>(guitarras <br>" +
                 "eléctricas, guitarras acústicas y bajos)</i></strong> así como todo tipo de complementos de éstos.<br>" +
-                "Todo ello enfocado a estilos clásicos como Blues o Rock, hasta estilos más pesados del<br>" +
+                "Todo ello enfocado a estilos clásicos como Blues o Rock, hasta los estilos más pesados del<br>" +
                 "Heavy Metal.<br>" +
                 "<br>" +
                 "¡Esperamos verte pronto!<br>" +
