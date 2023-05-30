@@ -60,7 +60,7 @@ public class Información extends JFrame {
         who.setForeground(Color.BLACK);
         who.setBackground(new Color(0xE9E9E9));
         who.setOpaque(true);
-        who.setBounds(465, 15, 320, 80);
+        who.setBounds(475, 15, 320, 80);
         Border border1 = BorderFactory.createLineBorder(Color.BLACK, 4); //Diseñamos el borde del Panel (color y grosor)
         who.setBorder(border1);
         getContentPane().add(who);
@@ -104,6 +104,18 @@ public class Información extends JFrame {
         contacto.setFont(new Font("Candara", Font.PLAIN, 17));
         contacto.setForeground(new Color(0xE9E9E9));
         getContentPane().add(contacto);
+
+        JLabel version = new JLabel("Versión 1.01");
+        version.setBounds(20, 10, 100, 30);
+        version.setFont(new Font("Candara", Font.PLAIN, 20));
+        version.setForeground(new Color(0xE9E9E9));
+        getContentPane().add(version);
+
+        JLabel autor = new JLabel("Powered by MikeSolutions");
+        autor.setBounds(20, 30, 180, 30);
+        autor.setFont(new Font("Candara", Font.PLAIN, 15));
+        autor.setForeground(new Color(0xE9E9E9));
+        getContentPane().add(autor);
     }
 
     private void colocarBotonesInfo(){

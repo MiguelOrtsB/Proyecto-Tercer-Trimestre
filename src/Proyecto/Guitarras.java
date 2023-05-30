@@ -53,7 +53,7 @@ public class Guitarras extends JFrame{
         colocarPanelGuitarras();
         colocarLabelsGuitarras();
         colocarBotonesGuitarras();
-        //reproduciraudio(reproduciraudio);
+        //  reproduciraudio(reproduciraudio);
 
         setVisible(true);
     }

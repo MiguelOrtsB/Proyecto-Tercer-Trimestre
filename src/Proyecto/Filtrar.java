@@ -107,7 +107,7 @@ public class Filtrar extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String query = "SELECT Nombre_guitarra, Precio, Tipo, Disponibilidad FROM guitarras WHERE Nombre_guitarra LIKE '%"+Filtro.getSelectedItem().toString()+"%' ORDER BY Precio ASC";
-                try {
+                try     {
                     PreparedStatement preparedStatement = conn.prepareStatement(query); //Coge la conexión que tenemos configurada
                     ResultSet resultado = preparedStatement.executeQuery(query); //Ejecuta la consulta SELECT de arriba (query) en la BBDD
                     guitarList.setModel(DbUtils.resultSetToTableModel(resultado)); //Muestra en la tabla el resultado de la query
@@ -180,10 +180,12 @@ public class Filtrar extends JFrame{
                 {"Gibson Explorer Antique Natural", "1899.0", "Eléctrica", "--"},
                 {"Gibson Slash Les Paul Standard", "2699.0", "Eléctrica", "--"},
                 {"Gibson 1960 Hummingbird", "4980.0", "Acústica", "--"},
+                {"Gibson Kirk Hammett 1979 Flying V", "15890.0", "Eléctrica", "--"},
                 {"Ibanez XPTB720", "1299.0", "Eléctrica", "--"},
                 {"Jackson SL3X DX", "719.0", "Eléctrica", "--"},
                 {"Yamaha F325 Acoustic", "169.0", "Acústica", "--"},
-                {"Yamaha AC1M II TBS", "748.0", "Acústica", "--"}};
+                {"Yamaha AC1M II TBS", "748.0", "Acústica", "--"},
+                {"Yamaha SLG200S Silent Guitar", "759.0", "Acústica", "--"}};
 
         String column[]={"Nombre Guitarra","Precio","Tipo","Disponibilidad"};
 
