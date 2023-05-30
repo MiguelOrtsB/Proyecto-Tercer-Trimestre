@@ -896,7 +896,6 @@ public class Guitarras extends JFrame{
 
                         JOptionPane.showMessageDialog(null, "Pulsa OK para parar");
                         clip.stop();
-
                     }else{
                         System.out.println("No podemos encontrar el archivo");
                     }
@@ -907,7 +906,6 @@ public class Guitarras extends JFrame{
         };
         reproducir1.addActionListener(demoSonido); //Añadimos el método ActionListener a la subopción de "guitarras"
     }
-
     public static void main(String[] args) {
         Guitarras g = new Guitarras();
     }
