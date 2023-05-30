@@ -375,8 +375,4 @@ public class Principal extends JFrame {
             menu1.setSelected(false);
         };
     };
-
-    public static void main(String[] args) {
-        Principal p = new Principal();
-    }
 }

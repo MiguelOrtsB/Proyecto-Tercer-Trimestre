@@ -1,15 +1,21 @@
 package Proyecto;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javazoom.jl.player.Player;
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import java.io.File;
+import java.util.ArrayList;
 
 public class Guitarras extends JFrame{
 
@@ -28,6 +34,7 @@ public class Guitarras extends JFrame{
     private JButton btn8;
     private JButton btn9;
     private JButton btn10;
+    private JButton reproducir1;
     private JButton botonAudio;
     private BasicPlayer basicPlayer;
 
@@ -857,6 +864,14 @@ public class Guitarras extends JFrame{
         atras.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Añadimos un estilo de cursos cuando nos posicionamos encima del botón
         panelGuitarras.add(atras); //Añadimos el botón al Panel
 
+        reproducir1 = new JButton("▶"); //Creamos el botón que volvera hacia atrás a la ventana principal de la app
+        //reproducir1.setFont(new Font("Dialog", Font.PLAIN, 30)); //Le asignamos un tipo de fuente
+        //reproducir1.setAlignmentX(Component.CENTER_ALIGNMENT); //Lo alineamos en el centro
+        reproducir1.setBounds(200, 45, 20, 20); //Método para la posición y tamañana del botón en el Panel
+        reproducir1.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Añadimos un estilo de cursos cuando nos posicionamos encima del botón
+        panelGuitarras.add(reproducir1); //Añadimos el botón al Panel
+
+
         ActionListener accederRegister = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -867,29 +882,33 @@ public class Guitarras extends JFrame{
         };
         atras.addActionListener(accederRegister); //Añadimos el método ActionListener a la subopción de "guitarras"
 
-
-    }
-    // (???????)
-   /* public void reproduciraudio(String file){
-
-        botonAudio = new JButton("Reproducir");
-        botonAudio.setBounds(500, 50, 100, 50);
-        panelGuitarras.add(botonAudio);
-
-        try {
-            BasicPlayer sonido = new BasicPlayer();
-            sonido.open(new File(file));
-            sonido.play();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        ActionListener reproducirAudio = new ActionListener() {
+        ActionListener demoSonido= new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                reproduciraudio("Musica/youtube_VjV4ChAkrbA_audio.mp3");
+                try{
+                    String musicLocation = "youtube_VjV4ChAkrbA_audio.wav"; //Ruta del archivo de sonido
+                    File musicPath = new File(musicLocation); //Introducimos la ruta dentro de un File
+                    if(musicPath.exists()){
+                        AudioInputStream audio = AudioSystem.getAudioInputStream(musicPath);
+                        Clip clip = AudioSystem.getClip();
+                        clip.open(audio);
+                        clip.start();
+
+                        JOptionPane.showMessageDialog(null, "Pulsa OK para parar");
+                        clip.stop();
+
+                    }else{
+                        System.out.println("No podemos encontrar el archivo");
+                    }
+                }catch (Exception ex){
+                    ex.printStackTrace();
+                }
             }
         };
-        botonAudio.addActionListener(reproducirAudio);
-    }*/
+        reproducir1.addActionListener(demoSonido); //Añadimos el método ActionListener a la subopción de "guitarras"
+    }
+
+    public static void main(String[] args) {
+        Guitarras g = new Guitarras();
+    }
 }
