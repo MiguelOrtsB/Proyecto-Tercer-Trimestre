@@ -214,7 +214,7 @@ public class Guitarras extends JFrame{
         Icon iconGuitarra6 = new ImageIcon(imagenGuitarra6.getImage().getScaledInstance(85, 210, Image.SCALE_SMOOTH));
         JLabel guitarra6 = new JLabel();
         guitarra6.setIcon(iconGuitarra6);
-        guitarra6.setBounds(80, 370, 170, 300);
+        guitarra6.setBounds(83, 370, 170, 300);
         panelGuitarras.add(guitarra6);
         JLabel guit6 = new JLabel("Gibson Explorer Antique Natural");
         guit6.setBounds(35, 610, 300, 50);
@@ -909,25 +909,25 @@ public class Guitarras extends JFrame{
 
         reproducir7 = new JButton("▶"); //Creamos el botón que volvera hacia atrás a la ventana principal de la app
         reproducir7.setAlignmentX(Component.CENTER_ALIGNMENT); //Lo alineamos en el centro
-        reproducir7.setBounds(300, 430, 45, 30); //Método para la posición y tamañana del botón en el Panel
+        reproducir7.setBounds(299, 430, 45, 30); //Método para la posición y tamañana del botón en el Panel
         reproducir7.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Añadimos un estilo de cursos cuando nos posicionamos encima del botón
         panelGuitarras.add(reproducir7); //Añadimos el botón al Panel
 
         reproducir8 = new JButton("▶"); //Creamos el botón que volvera hacia atrás a la ventana principal de la app
         reproducir8.setAlignmentX(Component.CENTER_ALIGNMENT); //Lo alineamos en el centro
-        reproducir8.setBounds(548, 430, 45, 30); //Método para la posición y tamañana del botón en el Panel
+        reproducir8.setBounds(549, 430, 45, 30); //Método para la posición y tamañana del botón en el Panel
         reproducir8.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Añadimos un estilo de cursos cuando nos posicionamos encima del botón
         panelGuitarras.add(reproducir8); //Añadimos el botón al Panel
 
         reproducir9 = new JButton("▶"); //Creamos el botón que volvera hacia atrás a la ventana principal de la app
         reproducir9.setAlignmentX(Component.CENTER_ALIGNMENT); //Lo alineamos en el centro
-        reproducir9.setBounds(805, 430, 45, 30); //Método para la posición y tamañana del botón en el Panel
+        reproducir9.setBounds(806, 430, 45, 30); //Método para la posición y tamañana del botón en el Panel
         reproducir9.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Añadimos un estilo de cursos cuando nos posicionamos encima del botón
         panelGuitarras.add(reproducir9); //Añadimos el botón al Panel
 
         reproducir10 = new JButton("▶"); //Creamos el botón que volvera hacia atrás a la ventana principal de la app
         reproducir10.setAlignmentX(Component.CENTER_ALIGNMENT); //Lo alineamos en el centro
-        reproducir10.setBounds(1052, 430, 45, 30); //Método para la posición y tamañana del botón en el Panel
+        reproducir10.setBounds(1053, 430, 45, 30); //Método para la posición y tamañana del botón en el Panel
         reproducir10.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Añadimos un estilo de cursos cuando nos posicionamos encima del botón
         panelGuitarras.add(reproducir10); //Añadimos el botón al Panel
 
