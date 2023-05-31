@@ -925,6 +925,12 @@ public class Guitarras extends JFrame{
         reproducir9.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Añadimos un estilo de cursos cuando nos posicionamos encima del botón
         panelGuitarras.add(reproducir9); //Añadimos el botón al Panel
 
+        reproducir10 = new JButton("▶"); //Creamos el botón que volvera hacia atrás a la ventana principal de la app
+        reproducir10.setAlignmentX(Component.CENTER_ALIGNMENT); //Lo alineamos en el centro
+        reproducir10.setBounds(1052, 430, 45, 30); //Método para la posición y tamañana del botón en el Panel
+        reproducir10.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Añadimos un estilo de cursos cuando nos posicionamos encima del botón
+        panelGuitarras.add(reproducir10); //Añadimos el botón al Panel
+
 
         ActionListener accederRegister = new ActionListener() {
             @Override
@@ -1153,6 +1159,30 @@ public class Guitarras extends JFrame{
             }
         };
         reproducir9.addActionListener(demoSonido9); //Añadimos el método ActionListener a la subopción de "guitarras"
+
+        ActionListener demoSonido10= new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    String musicLocation = "youtube__9XzaOdtJqs_audio.wav"; //Ruta del archivo de sonido
+                    File musicPath = new File(musicLocation); //Introducimos la ruta dentro de un File
+                    if(musicPath.exists()){
+                        AudioInputStream audio = AudioSystem.getAudioInputStream(musicPath);
+                        Clip clip = AudioSystem.getClip();
+                        clip.open(audio);
+                        clip.start();
+
+                        JOptionPane.showMessageDialog(null, "Pulsa OK para parar");
+                        clip.stop();
+                    }else{
+                        System.out.println("No podemos encontrar el archivo");
+                    }
+                }catch (Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        };
+        reproducir10.addActionListener(demoSonido10); //Añadimos el método ActionListener a la subopción de "guitarras"
     }
     public static void main(String[] args) {
         Guitarras g = new Guitarras();
