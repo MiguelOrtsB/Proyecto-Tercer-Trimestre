@@ -1184,7 +1184,4 @@ public class Guitarras extends JFrame{
         };
         reproducir10.addActionListener(demoSonido10); //Añadimos el método ActionListener a la subopción de "guitarras"
     }
-    public static void main(String[] args) {
-        Guitarras g = new Guitarras();
-    }
 }
