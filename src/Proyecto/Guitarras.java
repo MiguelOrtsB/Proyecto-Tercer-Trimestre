@@ -50,7 +50,7 @@ public class Guitarras extends JFrame{
 
         // FRAME
 
-        setSize(1280, 720); //Tamaño del Frame
+        setSize(1280, 720); //Tamaño del FRAME
         setLocationRelativeTo(null); //Coloca el Frame justo en el centro de la pantalla
         setResizable(false); //No deja al usuario redimensionar la ventana
         setTitle("\uD834\uDD1E Green Devil MusicStore \uD834\uDD1E"); // Título del Frame
