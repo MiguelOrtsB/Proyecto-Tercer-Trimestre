@@ -103,6 +103,7 @@ public class Filtrar extends JFrame{
         panelFiltrar.add(FiltroTipo);
 
         // FILTRAR POR MARCAS
+
         ActionListener filtrarGuitar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -119,6 +120,7 @@ public class Filtrar extends JFrame{
        Filtro.addActionListener(filtrarGuitar);
 
         // FILTRAR POR PRECIOS (NOS DEVOLVERÁ UNA DE LAS OPCIONES)
+
         ActionListener filtrarPrecios = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -152,6 +154,7 @@ public class Filtrar extends JFrame{
         FiltroPrecio.addActionListener(filtrarPrecios); //Añadimos el método Actionlister al Combobox
 
         // FILTRAR POR TIPO
+
         ActionListener filtrarTipoGuitarra = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -167,8 +170,7 @@ public class Filtrar extends JFrame{
         };
         FiltroTipo.addActionListener(filtrarTipoGuitarra);
 
-
-       //TABLA
+        //TABLA
 
         String data[][]={ {"ESP LTD GH-200 BLK","749.0","Eléctrica", "--"},
                 {"ESP LTD GL-200MT","749.0","Eléctrica", "--"},

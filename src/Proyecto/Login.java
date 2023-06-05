@@ -37,16 +37,6 @@ public class Login extends JFrame {
         //testSQLConexion(); //Prueba para comprobar si se conecta la BBDD
     }
 
-    /* Para comporbar si se conecta con la BBDD y cambia la disponibiliad a false de una guitarra en concreto (Ibanez)
-    private void testSQLConexion() {
-        try {
-            ConsultasBBDD querys = new ConsultasBBDD();
-            querys.ComprarGuitarra();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }*/
-
     // MÉTODO PARA INICIAR Y AGREGAR EL PANEL Y TODOS SU COMPONENTES AL FRAME
 
     private void iniciarComponentes(){ //Método para iniciar y agregar el Panel y todos sus componentes en el Frame
