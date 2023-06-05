@@ -79,7 +79,7 @@ public class Filtrar extends JFrame{
         labelLogo.setBounds(30, 5, 160, 120); //Establecemos su ubicación en el Panel
         panelFiltrar.add(labelLogo); //Añadimos el label al Panel
 
-        //COMBO BOX + MÉTODOS PARA FILTRAR LA BÚSQUEDA
+        //COMBO BOX + MÉTODOS PARA FILTRAR LA BÚSQUEDA (VOLCADO DE DATOS)
 
         Filtro = new JComboBox<>();
         Filtro.setBackground(new java.awt.Color(210, 210, 210));
@@ -118,7 +118,7 @@ public class Filtrar extends JFrame{
         };
        Filtro.addActionListener(filtrarGuitar);
 
-        // FILTRAR POR PRECIOS (NOS DEVOLVERÁ UNO DE LAS OPCIONES)
+        // FILTRAR POR PRECIOS (NOS DEVOLVERÁ UNA DE LAS OPCIONES)
         ActionListener filtrarPrecios = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
