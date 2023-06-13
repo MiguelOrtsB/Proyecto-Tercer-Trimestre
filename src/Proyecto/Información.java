@@ -74,7 +74,7 @@ public class Información extends JFrame {
         getContentPane().add(imagenLogoInfo);
 
         JLabel texto = new JLabel();
-        texto.setBounds(265, 150, 730, 360);
+        texto.setBounds(265, 150, 720, 360);
         texto.setText("<html><p>Somos una tienda especializada en instrumentos musicales de Palma de Mallorca.<br>" +
                 "Nuestra experiencia se remonta a 1995, cuando abrimos nuestra tienda con el objetivo<br>" +
                 "de aportar nuestro granito de arena para que todos los aficionados a la música de<br>" +
