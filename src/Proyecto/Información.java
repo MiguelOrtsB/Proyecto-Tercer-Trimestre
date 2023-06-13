@@ -43,14 +43,6 @@ public class Información extends JFrame {
         setVisible(true);
     }
 
-    /*public void colocarPanelInfo(){
-        panelInfo = new JPanel();
-        this.add(panelInfo);
-        panelInfo.setBackground(new Color(0xDFFFDF));
-        Border border = BorderFactory.createLineBorder(new Color(0x049B04), 4); //Diseñamos el borde del Panel (color y grosor)
-        panelInfo.setBorder(border);
-    }*/
-
     public void colocarLabelsInfo(){
 
         // LABELS PARA EL TÍTULO Y EL TEXTO DEL PANEL
